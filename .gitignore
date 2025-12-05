@@ -1,0 +1,35 @@
+# Large deployment files
+*.zip
+
+# Large media files
+*.mov
+*.MOV
+*.mp4
+*.MP4
+*.avi
+*.AVI
+*.mkv
+*.MKV
+
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Build outputs
+build/
+dist/
+*/build/
+*/dist/
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
