@@ -20,7 +20,7 @@ const Bestsellers = ({ onNavigate }) => {
       id: 2,
       title: "Waterfront 2BHK near Beach • Princess Tower Marina",
       name: "Waterfront 2BHK near Beach • Princess Tower Marina",
-      price: 800,
+      price: 1600,
       image: "./2BR in Princess Tower  Furnished  Close to Metro/Living Room/12996379-3a7c-46ce-bb22-678686ede8f9.jpeg",
       images: [
         "./2BR in Princess Tower  Furnished  Close to Metro/Living Room/12996379-3a7c-46ce-bb22-678686ede8f9.jpeg",
@@ -40,7 +40,7 @@ const Bestsellers = ({ onNavigate }) => {
       rating: 4.8,
       highlights: ["Smartlock self check-in", "Indoor/Outdoor pools", "Gym", "Kids play", "24/7 security", "Parking"],
       dtcm: "DUB-PRI-YJVVG",
-      sleeps: "BR1 — 1 Queen · BR2 — 2 Singles",
+      sleeps: "BR1 — 1 King · BR2 — 2 Singles",
       featured: true,
       available: true,
       slug: "waterfront-2bhk-princess-tower-marina-yjvvg"
@@ -49,7 +49,7 @@ const Bestsellers = ({ onNavigate }) => {
       id: 3,
       title: "Bright and Spacious 2BR - Dorra Bay",
       name: "Bright and Spacious 2BR - Dorra Bay",
-      price: 800,
+      price: 1700,
       image: "./Bright & comfy 2br Dora Bay/Living room/0ff58bc5-ec1f-4c92-ac95-75812ebbcb45.avif",
       images: [
         "./Bright & comfy 2br Dora Bay/Living room/0ff58bc5-ec1f-4c92-ac95-75812ebbcb45.avif",
@@ -70,7 +70,7 @@ const Bestsellers = ({ onNavigate }) => {
       rating: 4.7,
       highlights: ["Pool", "6-min to JBR Beach", "Walk to Marina Walk & cafés", "Gym", "Kids play", "Parking"],
       dtcm: "MAR-DOR-5FBLR",
-      sleeps: "3 queen sized beds",
+      sleeps: "3 king sized beds",
       featured: false,
       available: true,
       slug: "dorra-bay-2br-bright-comfy-marina-5fblr"
@@ -79,7 +79,7 @@ const Bestsellers = ({ onNavigate }) => {
       id: 1,
       title: "Sea View 2BHK in Palm Jumeirah Marina",
       name: "Sea View 2BHK in Palm Jumeirah Marina",
-      price: 2000,
+      price: 2500,
       image: "./Marina residency tower 2/Living room/0111eadd-7b05-4a99-841d-100a4f6b1e2a.avif",
       images: [
         "./Marina residency tower 2/Living room/85a505d4-a5e9-4622-9ef3-ad8db3584b31.avif",
@@ -100,7 +100,7 @@ const Bestsellers = ({ onNavigate }) => {
       rating: 4.9,
       highlights: ["Steps to beach", "Direct access to Nakheel Mall", "Pool", "Kids pool", "Gym", "Concierge", "Smartlock"],
       dtcm: "PAL-MAR-IFZEN",
-      sleeps: "3 Queen sized beds",
+      sleeps: "3 King sized beds",
       featured: true,
       available: true,
       slug: "palm-jumeirah-marina-res-2-2br-ifzen"
@@ -109,7 +109,7 @@ const Bestsellers = ({ onNavigate }) => {
       id: 4,
       title: "Family-friendly yet Affordable 2BHK in Princess Tower Marina",
       name: "Family-friendly yet Affordable 2BHK in Princess Tower Marina",
-      price: 800,
+      price: 1150,
       image: "./Family friendly 2BR/Living room/019dc95c-c729-483a-96d6-a128b6f687f2.avif",
       images: [
         "./Family friendly 2BR/Living room/019dc95c-c729-483a-96d6-a128b6f687f2.avif",
@@ -129,7 +129,7 @@ const Bestsellers = ({ onNavigate }) => {
       rating: 4.6,
       highlights: ["Family-friendly", "Kids play area", "Indoor/Outdoor pools", "Gym", "24/7 security", "Parking"],
       dtcm: "DUB-PRI-FAMILY",
-      sleeps: "BR1 — 1 Queen · BR2 — 2 Singles",
+      sleeps: "BR1 — 1 King · BR2 — 2 Singles",
       featured: false,
       available: true,
       slug: "family-friendly-2bhk-princess-tower-marina"
@@ -153,46 +153,46 @@ const Bestsellers = ({ onNavigate }) => {
                 </select>
               </div>
               <div className="view-toggle">
-                <button 
-                  className={`view-btn list-view ${viewMode === 'list' ? 'active' : ''}`} 
+                <button
+                  className={`view-btn list-view ${viewMode === 'list' ? 'active' : ''}`}
                   aria-label="List view"
                   onClick={() => handleViewModeChange('list')}
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <line x1="8" y1="6" x2="21" y2="6"/>
-                    <line x1="8" y1="12" x2="21" y2="12"/>
-                    <line x1="8" y1="18" x2="21" y2="18"/>
-                    <line x1="3" y1="6" x2="3.01" y2="6"/>
-                    <line x1="3" y1="12" x2="3.01" y2="12"/>
-                    <line x1="3" y1="18" x2="3.01" y2="18"/>
+                    <line x1="8" y1="6" x2="21" y2="6" />
+                    <line x1="8" y1="12" x2="21" y2="12" />
+                    <line x1="8" y1="18" x2="21" y2="18" />
+                    <line x1="3" y1="6" x2="3.01" y2="6" />
+                    <line x1="3" y1="12" x2="3.01" y2="12" />
+                    <line x1="3" y1="18" x2="3.01" y2="18" />
                   </svg>
                 </button>
-                <button 
-                  className={`view-btn grid-view ${viewMode === 'grid' ? 'active' : ''}`} 
+                <button
+                  className={`view-btn grid-view ${viewMode === 'grid' ? 'active' : ''}`}
                   aria-label="Grid view"
                   onClick={() => handleViewModeChange('grid')}
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <rect x="3" y="3" width="7" height="7"/>
-                    <rect x="14" y="3" width="7" height="7"/>
-                    <rect x="14" y="14" width="7" height="7"/>
-                    <rect x="3" y="14" width="7" height="7"/>
+                    <rect x="3" y="3" width="7" height="7" />
+                    <rect x="14" y="3" width="7" height="7" />
+                    <rect x="14" y="14" width="7" height="7" />
+                    <rect x="3" y="14" width="7" height="7" />
                   </svg>
                 </button>
               </div>
             </div>
           </div>
         </div>
-        
+
         <div className="bestsellers-grid grid grid-4">
           {bestsellerProducts.map((product) => (
             <ProductCard key={product.id} product={product} onNavigate={onNavigate} />
           ))}
         </div>
-        
+
         {/* Explore More Button */}
         <div className="explore-more-section">
-          <button 
+          <button
             className="explore-more-btn"
             onClick={() => onNavigate('book')}
           >

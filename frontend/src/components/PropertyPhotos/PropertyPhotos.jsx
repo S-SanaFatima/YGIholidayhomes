@@ -34,31 +34,31 @@ const PropertyPhotos = ({ property, onNavigate }) => {
         "/2BR in Princess Tower  Furnished  Close to Metro/Living Room/921e9809-51a8-4354-8752-c2bfb6293689.avif",
         "/2BR in Princess Tower  Furnished  Close to Metro/Living Room/d1ff2713-d44e-47a7-b314-ee10f7e92850.avif",
         "/2BR in Princess Tower  Furnished  Close to Metro/Living Room/dd19c01f-1e10-4a0b-870f-36428c76b4d2.jpeg",
-        
+
         // Bedroom 1 Images
         "/2BR in Princess Tower  Furnished  Close to Metro/BR1/188031da-df38-49ab-ac71-ccdd65a7c1e4.jpeg",
         "/2BR in Princess Tower  Furnished  Close to Metro/BR1/18dd0183-b98c-43b7-ade7-cf40e8cb40f9.avif",
         "/2BR in Princess Tower  Furnished  Close to Metro/BR1/4f9c3cc5-a5e4-4bd5-a37a-bea70f2d19a8.avif",
         "/2BR in Princess Tower  Furnished  Close to Metro/BR1/523150b9-19d3-45fd-aa8b-58d70d60ba56.avif",
         "/2BR in Princess Tower  Furnished  Close to Metro/BR1/5d7888e5-f563-4e46-844e-cae6ee9eab4b.avif",
-        
+
         // Bedroom 2 Images
         "/2BR in Princess Tower  Furnished  Close to Metro/BR2/027f21fd-508e-4174-a894-fe6eb0a9b03e.avif",
         "/2BR in Princess Tower  Furnished  Close to Metro/BR2/2479f095-e549-4208-9f24-189906d73efe.avif",
         "/2BR in Princess Tower  Furnished  Close to Metro/BR2/6bfa0b99-6311-4df1-8c62-036db358498f.jpeg",
         "/2BR in Princess Tower  Furnished  Close to Metro/BR2/c07fb509-8b34-46c4-a977-05de26559633.avif",
         "/2BR in Princess Tower  Furnished  Close to Metro/BR2/c8516ca1-6792-4703-bd02-521d35e0862b.avif",
-        
+
         // Kitchen Images
         "/2BR in Princess Tower  Furnished  Close to Metro/kitchen/01695d3d-0834-4278-8fb7-4e894ba2f90c.avif",
         "/2BR in Princess Tower  Furnished  Close to Metro/kitchen/f3609b97-580e-442c-a4de-ee5451820042.avif",
-        
+
         // Balcony Images
         "/2BR in Princess Tower  Furnished  Close to Metro/Balcony/0122b155-7516-46f9-b4d0-d86d930260e0.avif",
         "/2BR in Princess Tower  Furnished  Close to Metro/Balcony/303c3ae4-b3ba-4b74-b3f6-5db38f134707.avif",
         "/2BR in Princess Tower  Furnished  Close to Metro/Balcony/6c873a87-3972-4b68-a78b-4240b7d4ff62.avif",
         "/2BR in Princess Tower  Furnished  Close to Metro/Balcony/d4515d2f-90e3-417d-9fbc-b6c4f35a2c59.jpeg",
-        
+
         // Dining Room Images
         "/2BR in Princess Tower  Furnished  Close to Metro/Dinning Room/0228c67d-90b3-4b4f-bf8e-37c57f9f58a4.jpeg",
         "/2BR in Princess Tower  Furnished  Close to Metro/Dinning Room/0d30c8e1-ed10-49b3-aac2-1c426f5f575c.avif",
@@ -66,14 +66,14 @@ const PropertyPhotos = ({ property, onNavigate }) => {
         "/2BR in Princess Tower  Furnished  Close to Metro/Dinning Room/a5e52420-17a8-4fc4-907e-dea30ed31064.avif",
         "/2BR in Princess Tower  Furnished  Close to Metro/Dinning Room/a78a0936-19ea-4a57-b98b-0363e397bbfb.jpeg",
         "/2BR in Princess Tower  Furnished  Close to Metro/Dinning Room/be92771a-630d-413f-ae6c-182ec4342ae6.jpeg",
-        
+
         // Bathroom 1 Images
         "/2BR in Princess Tower  Furnished  Close to Metro/Bathroom 1/3e9b7f83-4a3e-42df-8760-c036b8fe79e1.avif",
         "/2BR in Princess Tower  Furnished  Close to Metro/Bathroom 1/9146b978-86ec-4ca9-8875-838b009b6df0.avif",
-        
+
         // Bathroom 2 Images
         "/2BR in Princess Tower  Furnished  Close to Metro/Bathroom2/10590021-6aa7-478b-8981-c6a8dc76655e.avif",
-        
+
         // Other Pictures
         "/2BR in Princess Tower  Furnished  Close to Metro/Otherpics/1f543d1b-b1c5-48a1-8a5a-ff32903e6586.jpeg",
         "/2BR in Princess Tower  Furnished  Close to Metro/Otherpics/8f6adf3c-23a4-46a1-b3ef-d00259b29dda.avif",
@@ -105,11 +105,11 @@ const PropertyPhotos = ({ property, onNavigate }) => {
         "/Bright & comfy 2br Dora Bay/Living room/33e2f997-4c32-49f0-97ba-529bc8dea112.avif",
         "/Bright & comfy 2br Dora Bay/Living room/301099c8-2a11-498a-a096-155cf0a3a724.avif",
         "/Bright & comfy 2br Dora Bay/Living room/0ff58bc5-ec1f-4c92-ac95-75812ebbcb45.avif",
-        
+
         // Kitchen Images
         "/Bright & comfy 2br Dora Bay/Full kitchen/9132687b-9f37-48ab-bc9a-50e42a6e67e6.avif",
         "/Bright & comfy 2br Dora Bay/Full kitchen/5690134c-bea5-4d0c-bd3a-94283cf06da2.avif",
-        
+
         // Exterior Images
         "/Bright & comfy 2br Dora Bay/Exterior/f6bd5388-2c1c-4780-9550-92974e17bca3.avif",
         "/Bright & comfy 2br Dora Bay/Exterior/ea9188b7-9010-474f-a7b0-0c1c5692be32.avif",
@@ -128,7 +128,7 @@ const PropertyPhotos = ({ property, onNavigate }) => {
         "/Bright & comfy 2br Dora Bay/Exterior/1ae39528-6955-45b2-8b6d-72c2b0b24056.avif",
         "/Bright & comfy 2br Dora Bay/Exterior/12671033-e362-47d9-83b7-ba6ad8b11b06.avif",
         "/Bright & comfy 2br Dora Bay/Exterior/06938194-63f7-458e-9781-ea4dea29fd89.avif",
-        
+
         // Dining Area Images
         "/Bright & comfy 2br Dora Bay/Dining area/9b858277-a2a7-46cc-a7d8-de5b7897277b.avif",
         "/Bright & comfy 2br Dora Bay/Dining area/940e1780-a6f8-4f69-9f6b-1dd8e04d49df.avif",
@@ -136,7 +136,7 @@ const PropertyPhotos = ({ property, onNavigate }) => {
         "/Bright & comfy 2br Dora Bay/Dining area/652798c4-7b30-4dc0-bba7-e725a0a2ad32.avif",
         "/Bright & comfy 2br Dora Bay/Dining area/4ae84e36-60f9-496b-825e-54dd12f07621.avif",
         "/Bright & comfy 2br Dora Bay/Dining area/1ff3364f-6d8e-4aa8-8f89-1117ee225db8.avif",
-        
+
         // Bedroom Images
         "/Bright & comfy 2br Dora Bay/BR2/a1c02b76-9495-4cd1-9473-b46740009e18.avif",
         "/Bright & comfy 2br Dora Bay/BR2/92a960bb-6df2-4d1d-9348-228627455cf4.avif",
@@ -146,7 +146,7 @@ const PropertyPhotos = ({ property, onNavigate }) => {
         "/Bright & comfy 2br Dora Bay/BR1/9ccb866f-e5ef-4beb-a22b-ee997c6bc211.avif",
         "/Bright & comfy 2br Dora Bay/BR1/63a04f0a-404c-458f-bbe7-848a9eb195b4.avif",
         "/Bright & comfy 2br Dora Bay/BR1/19e53c20-071e-4b1b-aabf-c65f2815002d.avif",
-        
+
         // Bathroom Images
         "/Bright & comfy 2br Dora Bay/Bathroom 1/aaef0a74-7ead-4182-a5ac-d6c606ee51ba.avif",
         "/Bright & comfy 2br Dora Bay/Bathroom 1/a21854b0-ff78-40f3-96e8-0f4622c97fb5.avif",
@@ -183,11 +183,11 @@ const PropertyPhotos = ({ property, onNavigate }) => {
         "/Family friendly 2BR/Living room/36942c8a-5a6f-458f-b8d0-8e138a064ed8.jpeg",
         "/Family friendly 2BR/Living room/01edd577-cb56-4845-aed0-f127c2945f66.avif",
         "/Family friendly 2BR/Living room/019dc95c-c729-483a-96d6-a128b6f687f2.avif",
-        
+
         // Kitchen Images
         "/Family friendly 2BR/Full kitchen/6d2380e7-292a-49a4-8eaf-2c8f582dcbef.avif",
         "/Family friendly 2BR/Full kitchen/49d859af-f75a-4849-a1c8-3a893b0526e2.avif",
-        
+
         // Exterior Images
         "/Family friendly 2BR/Exterior/fa83af28-cfae-4f9e-9091-e37377b868bd.avif",
         "/Family friendly 2BR/Exterior/e594bdd0-56aa-4e70-a7a2-8e4b92408ffc.avif",
@@ -196,7 +196,7 @@ const PropertyPhotos = ({ property, onNavigate }) => {
         "/Family friendly 2BR/Exterior/7ce184ec-90cc-4e75-aed5-e0af6424ea1f.avif",
         "/Family friendly 2BR/Exterior/0b61a92d-5129-4c9a-83b8-952da8252d11.avif",
         "/Family friendly 2BR/Exterior/0a2c520f-bf3d-48ee-b9df-356c719032ea.avif",
-        
+
         // Dining Area Images
         "/Family friendly 2BR/Dining area/eee92da9-a158-4b87-b788-d3b7b1ae16ad.jpeg",
         "/Family friendly 2BR/Dining area/ddfc5064-ec30-4943-9f0e-2a86fa27bdf9.jpeg",
@@ -207,7 +207,7 @@ const PropertyPhotos = ({ property, onNavigate }) => {
         "/Family friendly 2BR/Dining area/5fb366c4-786c-47c9-bc34-07f2e5d3f4df.avif",
         "/Family friendly 2BR/Dining area/41b02c00-8bee-49d1-9b6b-3d7051619186.jpeg",
         "/Family friendly 2BR/Dining area/24499d61-5c65-4d48-85eb-8fbb6f1bc05b.avif",
-        
+
         // Bedroom Images
         "/Family friendly 2BR/BR2/f38361b6-aee1-4040-8438-1fe8d33e28c0.avif",
         "/Family friendly 2BR/BR2/a6d803e9-79db-4932-923d-2b764910d52b.avif",
@@ -222,7 +222,7 @@ const PropertyPhotos = ({ property, onNavigate }) => {
         "/Family friendly 2BR/BR1/3382abd4-38b1-488d-8172-86463c3700e9.avif",
         "/Family friendly 2BR/BR1/2b59624d-f4b7-4bac-9a19-4c476ff58ba4.jpeg",
         "/Family friendly 2BR/BR1/0b4b2bee-acb3-4a20-8840-7c25e3430091.avif",
-        
+
         // Bathroom Images
         "/Family friendly 2BR/Bathroom2/c4d201bb-6468-4da4-a44b-cbf0c121863c.avif",
         "/Family friendly 2BR/Bathroom2/7b30349b-6dfa-4781-bcde-811ed8cf3261.avif",
@@ -253,11 +253,11 @@ const PropertyPhotos = ({ property, onNavigate }) => {
         "/Higher floor 2br princess tower/Living room/6b5738e8-3636-4293-b324-3bf5586beb17.avif",
         "/Higher floor 2br princess tower/Living room/640af4c4-37e2-4a69-a4b7-2dc6f8055df0.avif",
         "/Higher floor 2br princess tower/Living room/62e25314-db68-40e2-bdd2-134c27154169.jpeg",
-        
+
         // Kitchen Images
         "/Higher floor 2br princess tower/Full kitchen/f4300ff1-381d-4352-af95-d015b1f6d0e9.avif",
         "/Higher floor 2br princess tower/Full kitchen/7223fb7f-3f3c-4f85-ac8f-5606f529e36a.avif",
-        
+
         // Exterior Images
         "/Higher floor 2br princess tower/Exterior/f07375bc-9eba-41ac-826b-e672ffceff2b.avif",
         "/Higher floor 2br princess tower/Exterior/f06c8c7b-f869-4922-8e3d-2f195100260a.avif",
@@ -269,12 +269,12 @@ const PropertyPhotos = ({ property, onNavigate }) => {
         "/Higher floor 2br princess tower/Exterior/1625a4bf-dd53-4bd1-93a2-2fd717b3d686.avif",
         "/Higher floor 2br princess tower/Exterior/06db63a7-8df3-4c6a-a388-4241984d26a9.jpeg",
         "/Higher floor 2br princess tower/Exterior/0691774f-41bb-45c5-9c9d-e856f66b152a.avif",
-        
+
         // Dining Area Images
         "/Higher floor 2br princess tower/Dining area/e5b1db53-18e2-4fba-8d20-ea78b2d2b203.avif",
         "/Higher floor 2br princess tower/Dining area/c347de82-dd0d-41ee-8f98-0f051f3a4347.avif",
         "/Higher floor 2br princess tower/Dining area/61672e83-cb3b-46f1-8fe1-6f079de75252.avif",
-        
+
         // Bedroom Images
         "/Higher floor 2br princess tower/BR2/d27bbeac-99ff-4546-a7a2-336b3a0b1879.avif",
         "/Higher floor 2br princess tower/BR2/d15a3157-d3b7-4398-93b9-7fbdae823584.avif",
@@ -286,7 +286,7 @@ const PropertyPhotos = ({ property, onNavigate }) => {
         "/Higher floor 2br princess tower/BR1/3c53a13c-ba96-4ec6-b458-573308e1166f.avif",
         "/Higher floor 2br princess tower/BR1/2a4190c5-38f5-4634-8c93-342fa74899d1.avif",
         "/Higher floor 2br princess tower/BR1/14239239-affc-421d-948d-961c9253d68c.jpeg",
-        
+
         // Bathroom Images
         "/Higher floor 2br princess tower/Bathroom2/ec247d1d-f194-4e54-8193-e3ac34583f52.avif",
         "/Higher floor 2br princess tower/Bathroom2/4e68de71-ac58-4b46-a827-49ac036994cd.avif",
@@ -318,12 +318,12 @@ const PropertyPhotos = ({ property, onNavigate }) => {
         "/Marina residency tower 2/Living room/5c958a4d-ac66-4584-b68b-25a015d64cad.avif",
         "/Marina residency tower 2/Living room/38c84517-fe56-433c-9ee2-dc6b851815da.avif",
         "/Marina residency tower 2/Living room/0111eadd-7b05-4a99-841d-100a4f6b1e2a.avif",
-        
+
         // Kitchen Images
         "/Marina residency tower 2/Full kitchen/efc85719-5e26-49c3-b59a-b0905104b9f0.avif",
         "/Marina residency tower 2/Full kitchen/9a753bcb-e58e-44c4-b7fd-d6356bbb69b9.jpeg",
         "/Marina residency tower 2/Full kitchen/7c30deba-b07f-48ec-8db0-3b5f6d059302.avif",
-        
+
         // Exterior Images
         "/Marina residency tower 2/Exterior/f5bb1028-0683-4a4a-8d19-4c03376af976.jpeg",
         "/Marina residency tower 2/Exterior/e70ee6bf-a732-4196-a777-c53092dc90da.jpeg",
@@ -338,10 +338,10 @@ const PropertyPhotos = ({ property, onNavigate }) => {
         "/Marina residency tower 2/Exterior/1183ddb2-87ae-4395-81f2-6e0c0944f57e.jpeg",
         "/Marina residency tower 2/Exterior/0edf687a-e954-4ee8-919b-af8577701fc3.avif",
         "/Marina residency tower 2/Exterior/0b0b4845-b6ea-4bf9-93be-e8f5a8aa17d9.avif",
-        
+
         // Dining Area Images
         "/Marina residency tower 2/Dining area/3b10c210-adff-466c-8db6-134c998eeb50.avif",
-        
+
         // Bedroom Images
         "/Marina residency tower 2/BR2/cca605a3-d170-4b55-9f81-b990c0803c61.avif",
         "/Marina residency tower 2/BR2/64662e92-d00a-4237-a79f-ca8dca988157.jpeg",
@@ -350,7 +350,7 @@ const PropertyPhotos = ({ property, onNavigate }) => {
         "/Marina residency tower 2/BR1/da7aa125-4775-4218-a04e-5df5c4b2d3bb.avif",
         "/Marina residency tower 2/BR1/578706d0-8963-4cfa-a62c-d8e3a6ed9f2d.avif",
         "/Marina residency tower 2/BR1/2f845262-e65a-437c-8c09-da9884fb0625.jpeg",
-        
+
         // Bathroom Images
         "/Marina residency tower 2/Bathroom2/34726e9a-c2e9-495c-8b47-1456591f26a1.avif",
         "/Marina residency tower 2/Bathroom2/2479bd31-2ee2-4877-bc9d-0a5365ac850d.avif",
@@ -380,10 +380,10 @@ const PropertyPhotos = ({ property, onNavigate }) => {
         "/Urban retreat/Living room/87d3c2b9-2247-4a49-b7ac-7180086497bd.avif",
         "/Urban retreat/Living room/7d8f385d-d8bf-45f7-94fd-52565748fd03.jpeg",
         "/Urban retreat/Living room/5a9bcc96-de23-4e59-9ed1-f9cd3bb6b1d5.jpeg",
-        
+
         // Kitchen Images
         "/Urban retreat/Full kitchen/5f34cb21-ab82-4a39-80ca-2a57b411ae45.jpeg",
-        
+
         // Exterior Images
         "/Urban retreat/Exterior/e3f28bb6-8085-4cff-96bc-119a71a427fb.jpeg",
         "/Urban retreat/Exterior/e0ef78c6-b615-4c1f-9597-424a0a3aceea.jpeg",
@@ -392,7 +392,7 @@ const PropertyPhotos = ({ property, onNavigate }) => {
         "/Urban retreat/Exterior/84a3789d-1fcc-4eaf-b731-7aef8f3581af.jpeg",
         "/Urban retreat/Exterior/5eda3975-9f8d-4409-b5b6-e45d9ad7dadd.avif",
         "/Urban retreat/Exterior/042aa7fa-b004-4569-9667-9e9096f8530b.jpeg",
-        
+
         // Dining Area Images
         "/Urban retreat/Dining area/ecc230e9-2a90-4bf0-a6b3-a273b023ac92.jpeg",
         "/Urban retreat/Dining area/dbbe6448-7b4b-45f6-b2fc-d3373d4c1562.jpeg",
@@ -400,7 +400,7 @@ const PropertyPhotos = ({ property, onNavigate }) => {
         "/Urban retreat/Dining area/5911875f-f8a8-4967-a798-860f93c24e91.avif",
         "/Urban retreat/Dining area/3b49e856-3eaf-45fe-82b4-a5bdf00a13bf.jpeg",
         "/Urban retreat/Dining area/271d45ea-35b8-417a-8f33-3d45f996054c.avif",
-        
+
         // Bedroom Images
         "/Urban retreat/BR2/fb9dda3b-5f0f-4782-a44e-44f2e7e83291.jpeg",
         "/Urban retreat/BR2/f53c5416-9559-4674-8bd9-129708f43a84.jpeg",
@@ -414,7 +414,7 @@ const PropertyPhotos = ({ property, onNavigate }) => {
         "/Urban retreat/BR1/40c869fa-b3ac-4570-900e-55d35a6c016f.avif",
         "/Urban retreat/BR1/00a87f95-1859-4f93-adac-1bc4200b2d6e.jpeg",
         "/Urban retreat/BR1/0007c13d-ed47-4f10-a4b1-c273dafe40ca.jpeg",
-        
+
         // Bathroom Images
         "/Urban retreat/Bathroom 1/757cab17-ac26-41f1-8c6e-760ef74560ec.jpeg",
         "/Urban retreat/Bathroom 1/459c05db-0fd9-4233-ad55-4645c85b09ae.jpeg",
@@ -428,40 +428,44 @@ const PropertyPhotos = ({ property, onNavigate }) => {
   // Get the current property data - try to match by title or use default
   const getPropertyData = () => {
     if (!property) return allProperties[1];
-    
+
     // Try to find property by ID first
     if (property.id && allProperties[property.id]) {
       return {
         ...allProperties[property.id],
+        ...property, // Use passed property data to override
         title: property.title || allProperties[property.id].title,
         location: property.location || allProperties[property.id].location
       };
     }
-    
+
     // Try to find property by title
-    const titleMatch = Object.values(allProperties).find(p => 
+    const titleMatch = Object.values(allProperties).find(p =>
       p.title.toLowerCase().includes(property.title?.toLowerCase() || '') ||
       (property.title?.toLowerCase() || '').includes(p.title.toLowerCase())
     );
-    
+
     if (titleMatch) {
       return {
         ...titleMatch,
+        ...property, // Use passed property data to override
         title: property.title || titleMatch.title,
         location: property.location || titleMatch.location
       };
     }
-    
+
     // Default to Princess Tower
     return {
       ...allProperties[1],
+      ...property, // Use passed property data (including images) to override defaults
+      images: property.images || allProperties[1].images,
       title: property.title || allProperties[1].title,
       location: property.location || allProperties[1].location
     };
   };
 
   const mockProperty = getPropertyData();
-  
+
   // Ensure we have images
   if (!mockProperty.images || mockProperty.images.length === 0) {
     console.warn('No images found for property:', mockProperty.title);
@@ -531,27 +535,27 @@ const PropertyPhotos = ({ property, onNavigate }) => {
     <div className="property-photos">
       {/* Header */}
       <div className="photos-header">
-        <button 
+        <button
           className="back-btn"
           onClick={() => onNavigate('property-details')}
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M19 12H5M12 19l-7-7 7-7"/>
+            <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
         </button>
-        
+
         <div className="header-actions">
           <button className="share-btn">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
-              <polyline points="16,6 12,2 8,6"/>
-              <line x1="12" y1="2" x2="12" y2="15"/>
+              <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+              <polyline points="16,6 12,2 8,6" />
+              <line x1="12" y1="2" x2="12" y2="15" />
             </svg>
             Share
           </button>
           <button className="save-btn">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
             </svg>
             Save
           </button>
@@ -568,10 +572,10 @@ const PropertyPhotos = ({ property, onNavigate }) => {
         {/* Photo Tour Section */}
         <div className="photo-tour-section">
           <h2>Photo tour</h2>
-          
+
           {/* Category Grid */}
           <div className="category-grid">
-            {Object.entries(imageCategories).filter(([category, images]) => 
+            {Object.entries(imageCategories).filter(([category, images]) =>
               category !== 'all' && images.length > 0
             ).map(([category, images]) => (
               <div
@@ -595,7 +599,7 @@ const PropertyPhotos = ({ property, onNavigate }) => {
 
         {/* All Photos by Category */}
         <div className="all-photos-section">
-          {Object.entries(imageCategories).filter(([category, images]) => 
+          {Object.entries(imageCategories).filter(([category, images]) =>
             category !== 'all' && images.length > 0
           ).map(([category, images]) => (
             <div key={category} className="category-section">
@@ -623,35 +627,58 @@ const PropertyPhotos = ({ property, onNavigate }) => {
           ))}
         </div>
 
+        {/* All Photos Grid (Fall back if categories miss images or to show everything) */}
+        <div className="property-section all-images-grid" style={{ marginTop: '40px' }}>
+          <h3>All Photos</h3>
+          <div className="category-photos">
+            {mockProperty.images.map((image, index) => (
+              <div
+                key={`all-${index}`}
+                className="category-photo"
+                onClick={() => {
+                  setSelectedCategory('all');
+                  handleImageClick(index);
+                }}
+              >
+                <img
+                  src={image}
+                  alt={`Property ${index + 1}`}
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Lightbox */}
         {isLightboxOpen && (
           <div className="lightbox" onClick={handleCloseLightbox}>
             <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
               <button className="lightbox-close" onClick={handleCloseLightbox}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <line x1="18" y1="6" x2="6" y2="18"/>
-                  <line x1="6" y1="6" x2="18" y2="18"/>
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
               </button>
-              
+
               <button className="lightbox-prev" onClick={handlePrevImage}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M15 18l-6-6 6-6"/>
+                  <path d="M15 18l-6-6 6-6" />
                 </svg>
               </button>
-              
+
               <button className="lightbox-next" onClick={handleNextImage}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M9 18l6-6-6-6"/>
+                  <path d="M9 18l6-6-6-6" />
                 </svg>
               </button>
-              
+
               <img
                 src={currentImages[selectedImage]}
                 alt={`${mockProperty.title} - ${selectedCategory} ${selectedImage + 1}`}
                 className="lightbox-image"
               />
-              
+
               <div className="lightbox-counter">
                 {selectedImage + 1} / {currentImages.length}
               </div>

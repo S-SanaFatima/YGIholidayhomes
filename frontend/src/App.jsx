@@ -15,12 +15,16 @@ import Payment from './components/Payment/Payment';
 import TestBooking from './components/TestBooking/TestBooking';
 import GoogleSheetsTest from './components/GoogleSheetsTest/GoogleSheetsTest';
 import Footer from './components/Footer/Footer';
-import DiscountBanner from './components/DiscountBanner/DiscountBanner';
 import PageMetadata from './components/PageMetadata/PageMetadata';
 import PrivacyPolicy from './components/Legal/PrivacyPolicy';
 import TermsAndConditions from './components/Legal/TermsAndConditions';
 import SEOContent from './components/SEOContent/SEOContent';
 import Testimonials from './components/Testimonials/Testimonials';
+import ExploreProperties from './components/ExploreProperties/ExploreProperties';
+import WhyChooseYGI from './components/WhyChooseYGI/WhyChooseYGI';
+import HomeFAQs from './components/HomeFAQs/HomeFAQs';
+import DubaiCommunities from './components/DubaiCommunities/DubaiCommunities';
+import HomeCTA from './components/HomeCTA/HomeCTA';
 import {
   getPageFromSlug,
   getSlugFromPage,
@@ -167,10 +171,13 @@ function App() {
           <>
             <Hero onNavigate={handleNavigate} />
             <DiscoverHolidayHomes />
+            <ExploreProperties onNavigate={handleNavigate} />
             <SearchFilter onNavigate={handleNavigate} />
-            <DiscountBanner />
             <Bestsellers onNavigate={handleNavigate} />
-            <FeatureTiles onNavigate={handleNavigate} />
+            <DubaiCommunities onNavigate={handleNavigate} />
+            <WhyChooseYGI />
+            <Testimonials />
+            <HomeFAQs />
           </>
         );
     }

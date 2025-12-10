@@ -15,18 +15,17 @@ const DiscoverHolidayHomes = () => {
         <div className="discover-content">
           <div className="discover-text">
             <h2 className="discover-title">
-              Discover Holiday Homes
+              Discover Holiday Homes in Dubai
             </h2>
-            <h3 className="discover-subtitle">
-              Explore the best Holiday Homes in Dubai by YGI Holiday Homes
-            </h3>
-            <p className="discover-description">
-              The simple and safe way to find short-term rentals in Dubai.
-            </p>
-
             <div className="discover-main-text">
               <p>
-                YGI Holiday Homes specializes in managing luxury holiday homes and affordable apartments in Dubai.
+                Welcome to YGI Holiday Homes, your trusted partner for finding short term rentals in Dubai that combine comfort, convenience, and style. Whether you are visiting for leisure, business, or family trips, we provide a seamless experience to explore the best apartments for rent in Dubai and curated holiday homes Dubai.
+              </p>
+              <p>
+                At YGI Holiday Homes, every property is carefully selected to meet high standards of design, comfort, and safety. From modern city apartments to waterfront residences, we ensure that every short term rental offers a premium experience with personalized support and 24/7 assistance.
+              </p>
+              <p>
+                Our mission is to make your Dubai stay stress-free, memorable, and perfectly suited to your lifestyle.
               </p>
             </div>
 
@@ -63,3 +62,4 @@ const DiscoverHolidayHomes = () => {
 };
 
 export default DiscoverHolidayHomes;
+

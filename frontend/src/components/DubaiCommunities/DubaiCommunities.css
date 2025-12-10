@@ -1,33 +1,34 @@
-.why-choose-ygi {
+.dubai-communities {
   padding: 80px 0;
-  background: linear-gradient(135deg, #EAF7F1 0%, #ffffff 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #EAF7F1 100%);
 }
 
-.why-choose-ygi h2 {
+.dubai-communities h2 {
   text-align: center;
   font-size: 2.5rem;
   color: #0D3B2E;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   font-weight: 700;
 }
 
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto 2rem;
+.communities-intro {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #3B4555;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto 3rem;
 }
 
-.features-grid-centered {
+.communities-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
-.feature-card {
+.community-card {
   background: white;
   padding: 2rem;
   border-radius: 20px;
@@ -38,7 +39,7 @@
   overflow: hidden;
 }
 
-.feature-card::before {
+.community-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -50,50 +51,36 @@
   transition: transform 0.3s ease;
 }
 
-.feature-card:hover {
+.community-card:hover {
   transform: translateY(-5px);
   border-color: #0FA968;
   box-shadow: 0 15px 40px rgba(15, 169, 104, 0.2);
 }
 
-.feature-card:hover::before {
+.community-card:hover::before {
   transform: scaleX(1);
 }
 
-.feature-card h3 {
-  font-size: 1.5rem;
+.community-card h3 {
+  font-size: 1.8rem;
   color: #0D3B2E;
   margin-bottom: 1rem;
   font-weight: 700;
 }
 
-.feature-card p {
+.community-card p {
   color: #3B4555;
   line-height: 1.6;
   font-size: 1rem;
 }
 
-@media (max-width: 1024px) {
-  .features-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .features-grid-centered {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 100%;
-  }
-}
-
 @media (max-width: 768px) {
-  .features-grid {
+  .communities-grid {
     grid-template-columns: 1fr;
   }
 
-  .features-grid-centered {
-    grid-template-columns: 1fr;
-  }
-
-  .why-choose-ygi h2 {
+  .dubai-communities h2 {
     font-size: 2rem;
   }
 }
+

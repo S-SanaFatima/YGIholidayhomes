@@ -20,10 +20,10 @@ const SearchFilter = ({ onNavigate }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    
+
     // Validate that at least one filter is selected
     const hasFilters = Object.values(searchFilters).some(value => value && value !== '');
-    
+
     // Create search parameters object
     const searchParams = {
       propertyType: searchFilters.propertyType || 'All Types',
@@ -50,7 +50,7 @@ const SearchFilter = ({ onNavigate }) => {
       minPrice: 'Min Price',
       maxPrice: 'Max Price'
     };
-    
+
     if (onNavigate) {
       onNavigate('book', null, quickSearchParams);
     }
@@ -58,47 +58,46 @@ const SearchFilter = ({ onNavigate }) => {
 
   return (
     <section className="search-wrap">
-      <h1 className="search-title">Find Short Term Rentals In Dubai</h1>
+      <div className="search-header">
+        <h1 className="search-title">Find Short Term Rentals in Dubai</h1>
+        <p className="search-description">
+          Our property search helps you locate the best short term rentals in Dubai in prime locations suited for every type of traveler.
+        </p>
+      </div>
 
       {/* Quick Search Tags */}
       <div className="quick-search-tags">
         <h3>Popular Searches:</h3>
         <div className="tag-container">
-          <button 
+          <button
             className="quick-tag"
             onClick={() => handleQuickSearch('Dubai Marina')}
           >
             Dubai Marina
           </button>
-          <button 
+          <button
             className="quick-tag"
             onClick={() => handleQuickSearch('Princess Tower')}
           >
             Princess Tower
           </button>
-          <button 
+          <button
             className="quick-tag"
             onClick={() => handleQuickSearch('Downtown Dubai')}
           >
             Downtown Dubai
           </button>
-          <button 
+          <button
+            className="quick-tag"
+            onClick={() => handleQuickSearch('Palm Jumeirah')}
+          >
+            Palm Jumeirah
+          </button>
+          <button
             className="quick-tag"
             onClick={() => handleQuickSearch('Urban Oasis')}
           >
             Urban Oasis
-          </button>
-          <button 
-            className="quick-tag"
-            onClick={() => handleQuickSearch('Luxury')}
-          >
-            Luxury
-          </button>
-          <button 
-            className="quick-tag"
-            onClick={() => handleQuickSearch('Family')}
-          >
-            Family Friendly
           </button>
         </div>
       </div>
@@ -108,7 +107,7 @@ const SearchFilter = ({ onNavigate }) => {
           {/* Row 1 */}
           <div className="field">
             <label>Property Type</label>
-            <select 
+            <select
               value={searchFilters.propertyType}
               onChange={(e) => handleInputChange('propertyType', e.target.value)}
             >
@@ -122,7 +121,7 @@ const SearchFilter = ({ onNavigate }) => {
 
           <div className="field">
             <label>Location</label>
-            <select 
+            <select
               value={searchFilters.city}
               onChange={(e) => handleInputChange('city', e.target.value)}
             >
@@ -140,7 +139,7 @@ const SearchFilter = ({ onNavigate }) => {
 
           <div className="field">
             <label>Bedrooms</label>
-            <select 
+            <select
               value={searchFilters.bedrooms}
               onChange={(e) => handleInputChange('bedrooms', e.target.value)}
             >
@@ -155,7 +154,7 @@ const SearchFilter = ({ onNavigate }) => {
           {/* Row 2 */}
           <div className="field">
             <label>Bathrooms</label>
-            <select 
+            <select
               value={searchFilters.bathrooms}
               onChange={(e) => handleInputChange('bathrooms', e.target.value)}
             >
@@ -169,7 +168,7 @@ const SearchFilter = ({ onNavigate }) => {
 
           <div className="field">
             <label>Min Price</label>
-            <select 
+            <select
               value={searchFilters.minPrice}
               onChange={(e) => handleInputChange('minPrice', e.target.value)}
             >
@@ -184,7 +183,7 @@ const SearchFilter = ({ onNavigate }) => {
 
           <div className="field">
             <label>Max Price</label>
-            <select 
+            <select
               value={searchFilters.maxPrice}
               onChange={(e) => handleInputChange('maxPrice', e.target.value)}
             >
@@ -202,6 +201,12 @@ const SearchFilter = ({ onNavigate }) => {
             <button type="submit" className="btn-primary">Search Properties</button>
           </div>
         </form>
+      </div>
+
+      <div className="search-stats">
+        <p>
+          With over <strong>250 properties</strong> across more than <strong>100 communities</strong>, YGI Holiday Homes ensures that every visitor can find the ideal apartments for rent in Dubai, whether for short-term stays or extended visits.
+        </p>
       </div>
     </section>
   );

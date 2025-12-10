@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 const PAGE_METADATA = {
     'home': {
         title: 'YGI Holiday Homes | Luxury Short Term Rentals in Dubai',
-        description: 'Find premium short-term rentals in Dubai with YGI Holiday Homes. Apartments for rent in Dubai with 24/7 support, flexible stays, and prime locations.'
+        description: 'Discover premium short term rentals in Dubai with YGI Holiday Homes. Apartments for rent in Dubai with 24/7 support, flexible stays, and prime locations.'
     },
     'book': {
         title: 'Book Your Apartments in Dubai | YGI Holiday Homes',

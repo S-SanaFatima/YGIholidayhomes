@@ -132,6 +132,30 @@
   font-weight: 600;
 }
 
+.price-row.discount-row.automatic-discount {
+  background: linear-gradient(135deg, rgba(15, 169, 104, 0.15) 0%, rgba(10, 163, 138, 0.15) 100%);
+  border: 2px solid rgba(15, 169, 104, 0.3);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.price-row.discount-row.coupon-discount {
+  background: rgba(15, 169, 104, 0.08);
+  border: 1px solid rgba(15, 169, 104, 0.2);
+}
+
+.savings-badge.automatic-savings {
+  background: linear-gradient(135deg, #0FA968 0%, #0AA38A 100%);
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  box-shadow: 0 4px 12px rgba(15, 169, 104, 0.3);
+}
+
 .discount-label {
   display: flex;
   flex-direction: column;

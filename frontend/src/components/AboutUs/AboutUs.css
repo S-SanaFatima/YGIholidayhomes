@@ -166,8 +166,8 @@
   padding: 4rem;
   border-radius: 24px;
   box-shadow: 0 20px 60px rgba(15, 169, 104, 0.2);
-  text-align: center;
-  max-width: 800px;
+  text-align: left;
+  max-width: 900px;
   margin: 0 auto;
   color: #ffffff;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
@@ -179,6 +179,7 @@
   margin-bottom: 1.5rem;
   font-weight: 600;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  text-align: center;
 }
 
 .story-card p {
@@ -195,6 +196,7 @@
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
+  margin: 2rem 0;
 }
 
 .perk-chip {
@@ -643,16 +645,18 @@
 
 /* Buttons */
 .btn {
-  padding: 14px 28px;
+  padding: 18px 36px;
   border-radius: 50px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 18px;
   transition: all 0.3s ease;
   display: inline-block;
   border: 2px solid transparent;
   cursor: pointer;
   font-family: inherit;
+  min-height: 56px;
+  line-height: 1.2;
 }
 
 .btn-primary {
@@ -909,4 +913,418 @@
   opacity: 0.8;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+/* Trust Statement */
+.trust-statement {
+  font-size: 1.1rem;
+  color: #ffffff;
+  line-height: 1.8;
+  margin-top: 2rem;
+  opacity: 0.95;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Why Choose YGI Holiday Homes */
+.why-choose-ygi {
+  padding: 80px 0;
+  background: #EAF7F1;
+}
+
+.why-choose-ygi h2 {
+  font-size: 2.5rem;
+  color: #0D3B2E;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 600;
+}
+
+.why-choose-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  grid-auto-flow: row;
+}
+
+/* Ensure 2 items per row on all screen sizes above mobile */
+@media (min-width: 769px) {
+  .why-choose-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    display: grid !important;
+  }
+}
+
+.why-choose-item {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  text-align: left;
+  box-shadow: 0 10px 30px rgba(15, 169, 104, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  min-width: 0; /* Prevent grid overflow */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.why-choose-item:hover {
+  transform: translateY(-5px);
+  border-color: #0FA968;
+  box-shadow: 0 15px 40px rgba(15, 169, 104, 0.2);
+}
+
+.why-choose-item h3 {
+  font-size: 1.4rem;
+  color: #0FA968;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.why-choose-item p {
+  font-size: 1rem;
+  color: #0D3B2E;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Why Book Your Apartments in Dubai With Us */
+.why-book-with-us {
+  padding: 80px 0;
+  background: white;
+}
+
+.why-book-with-us h2 {
+  font-size: 2.5rem;
+  color: #0D3B2E;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 600;
+}
+
+.why-book-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Ensure 3 items per row on desktop/tablet */
+@media (min-width: 901px) {
+  .why-book-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    display: grid !important;
+  }
+}
+
+/* 2 columns on medium screens */
+@media (min-width: 601px) and (max-width: 900px) {
+  .why-book-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+.why-book-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  text-align: left;
+  box-shadow: 0 10px 30px rgba(15, 169, 104, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.why-book-card:hover {
+  transform: translateY(-5px);
+  border-color: #0FA968;
+  box-shadow: 0 15px 40px rgba(15, 169, 104, 0.2);
+}
+
+.why-book-card h3 {
+  font-size: 1.4rem;
+  color: #0FA968;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.why-book-card p {
+  font-size: 1rem;
+  color: #0D3B2E;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Our Story */
+.our-story {
+  padding: 80px 0;
+  background: #EAF7F1;
+}
+
+.our-story h2 {
+  font-size: 2.5rem;
+  color: #0D3B2E;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 600;
+}
+
+.story-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.story-content p {
+  font-size: 1.1rem;
+  color: #0D3B2E;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.story-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Our Services */
+.our-services {
+  padding: 80px 0;
+  background: white;
+}
+
+.our-services h2 {
+  font-size: 2.5rem;
+  color: #0D3B2E;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 600;
+}
+
+.services-list {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+}
+
+.service-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: #EAF7F1;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.service-item:hover {
+  background: rgba(15, 169, 104, 0.1);
+  transform: translateX(5px);
+}
+
+.service-icon {
+  font-size: 1.5rem;
+  color: #0FA968;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.service-item p {
+  font-size: 1rem;
+  color: #0D3B2E;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.services-cta {
+  max-width: 900px;
+  margin: 2rem auto 0;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #0D3B2E;
+  line-height: 1.8;
+  font-weight: 500;
+}
+
+/* Testimonials */
+.testimonials-section {
+  padding: 80px 0;
+  background: #EAF7F1;
+}
+
+.testimonials-section h2 {
+  font-size: 2.5rem;
+  color: #0D3B2E;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 600;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(15, 169, 104, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  text-align: left;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  border-color: #0FA968;
+  box-shadow: 0 15px 40px rgba(15, 169, 104, 0.2);
+}
+
+.testimonial-content {
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-text {
+  font-size: 1.1rem;
+  color: #0D3B2E;
+  line-height: 1.7;
+  font-style: italic;
+  margin: 0;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.testimonial-author strong {
+  color: #0FA968;
+  font-weight: 600;
+}
+
+.testimonial-author span {
+  color: #6B7280;
+}
+
+/* FAQs */
+.faqs-section {
+  padding: 60px 0;
+  background: white;
+}
+
+.faqs-section h2 {
+  font-size: 2.5rem;
+  color: #0D3B2E;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.faqs-list {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: white;
+  border: 2px solid #EAF7F1;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: #0FA968;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0D3B2E;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+  color: #0FA968;
+}
+
+.faq-question.active {
+  color: #0FA968;
+}
+
+.faq-icon {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0FA968;
+  flex-shrink: 0;
+}
+
+.faq-answer {
+  padding: 0 1.25rem 1rem;
+  text-align: left;
+}
+
+.faq-answer p {
+  font-size: 0.95rem;
+  color: #0D3B2E;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Updates */
+@media (max-width: 600px) {
+  .why-choose-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+  }
+  
+  .why-book-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .story-content {
+    text-align: left;
+  }
+  
+  .service-item {
+    text-align: left;
+  }
+  
+  .services-cta {
+    text-align: center;
+  }
+}
+
+@media (min-width: 601px) {
+  .why-choose-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    display: grid !important;
+  }
 }

@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import PriceDisplay from '../PriceDisplay/PriceDisplay';
-import DiscountBanner from '../DiscountBanner/DiscountBanner';
-import { validateCoupon, calculateDiscount, getActiveCoupons } from '../../utils/couponSystem';
 import { properties as realProperties } from '../../data/properties';
 import './BookApartment.css';
 
@@ -147,7 +145,7 @@ const BookApartment = ({ onNavigate, onViewDetails, onBookNow, searchParams }) =
       // Close modal and navigate to payment page
       setShowBookingModal(false);
       setSelectedProperty(null);
-
+      
       // Pass booking data to parent component for payment
       if (onBookNow) {
         onBookNow(paymentBookingData);
@@ -324,22 +322,22 @@ const BookApartment = ({ onNavigate, onViewDetails, onBookNow, searchParams }) =
       <div className="hero-video-section">
         <div className="video-container">
           {!videoError ? (
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="hero-video"
+          <video 
+            autoPlay 
+            muted 
+            loop 
+            playsInline
+            className="hero-video"
               onError={(e) => {
                 console.error('Video failed to load:', e.target.src);
                 setVideoError(true);
               }}
               onLoadStart={() => console.log('Video loading started')}
               onCanPlay={() => console.log('Video can play')}
-            >
+          >
               <source src="/Images/IMG_1646.MP4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            Your browser does not support the video tag.
+          </video>
           ) : (
             <div className="video-fallback">
               <div className="fallback-bg"></div>
@@ -350,12 +348,22 @@ const BookApartment = ({ onNavigate, onViewDetails, onBookNow, searchParams }) =
           )}
           <div className="video-overlay">
             <div className="video-content">
-              <h1>Discover Your Perfect Stay</h1>
+              <h1>Book Your Apartments in Dubai for a Luxurious Stay</h1>
               <p>Experience luxury accommodations in Dubai</p>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Explore Luxury Apartments Section */}
+      <section className="book-explore-section">
+        <div className="container">
+          <h2>Explore Luxury Apartments for Rent in Dubai</h2>
+          <p>
+            Our apartments are designed to provide the perfect combination of style, comfort, and convenience. Whether you are looking for a modern apartment for rent in Dubai Marina, a cozy apartment in Jumeirah, or a high-rise penthouse in Downtown Dubai, we have options that meet your expectations.
+          </p>
+        </div>
+      </section>
 
       {/* Calculator Section */}
       <div className="calculator-section">
@@ -471,7 +479,7 @@ const BookApartment = ({ onNavigate, onViewDetails, onBookNow, searchParams }) =
       {/* Properties Grid */}
       <div className="properties-section">
         <div className="container">
-          <h1>{searchResults ? 'Available Properties' : 'Book an Apartment'}</h1>
+          <h2 className="properties-heading">{searchResults ? 'Available Properties' : 'Book an Apartment'}</h2>
           {loading ? (
             <div className="loading-state">
               <div className="skeleton-grid">
@@ -567,8 +575,52 @@ const BookApartment = ({ onNavigate, onViewDetails, onBookNow, searchParams }) =
         </div>
       </div>
 
-      {/* Discount Banner */}
-      <DiscountBanner />
+      {/* FAQs Section */}
+      <section className="book-faqs-section">
+        <div className="container">
+          <h2>Frequently Asked Questions</h2>
+          <div className="faqs-list-book">
+            <div className="faq-item-book">
+              <h3>1. How do I book an apartment in Dubai?</h3>
+              <p>Use our online search tool to select your dates, filter your preferences, and complete the booking instantly.</p>
+            </div>
+            <div className="faq-item-book">
+              <h3>2. Can I book apartments for short stays?</h3>
+              <p>Yes, we offer flexible booking options for both short-term and long-term stays.</p>
+            </div>
+            <div className="faq-item-book">
+              <h3>3. Are the apartments fully furnished?</h3>
+              <p>All apartments are fully furnished and equipped with modern amenities for a comfortable stay.</p>
+            </div>
+            <div className="faq-item-book">
+              <h3>4. Can I find family-friendly apartments?</h3>
+              <p>Yes, we offer family-friendly apartments with multiple bedrooms, kitchens, and entertainment facilities.</p>
+            </div>
+            <div className="faq-item-book">
+              <h3>5. How do I know the property is safe and verified?</h3>
+              <p>Every listing is inspected and verified to ensure safety, hygiene, and comfort for all guests.</p>
+            </div>
+            <div className="faq-item-book">
+              <h3>6. Can I make multiple bookings for group stays?</h3>
+              <p>Absolutely, our platform allows multiple bookings for families, corporate groups, or large parties.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="book-cta-section">
+        <div className="container">
+          <h2>Ready to Book Your Apartments in Dubai?</h2>
+          <p>
+            Experience the best of Dubai with YGI Holiday Homes. Our verified listings, premium locations, and seamless booking platform make it easy to find and reserve your ideal apartment.
+          </p>
+          <p>
+            Book your apartments in Dubai today and enjoy a luxurious, hassle-free stay with all the comforts of home.
+          </p>
+        </div>
+      </section>
+
 
       {/* Booking Modal */}
       {showBookingModal && (
@@ -595,47 +647,47 @@ const PropertyCard = ({ property, onBookNow, onViewDetails }) => {
           <span>{property.rating}</span>
         </div>
       </div>
-
+      
       <div className="property-content">
         <h3 className="property-title">{property.title}</h3>
-
+        
         <div className="property-meta">
           <span>👥 {property.guests}</span>
           <span>🛏 {property.beds}</span>
           <span>🛁 {property.bathrooms}</span>
         </div>
-
+        
         <p className="property-location">{property.location}</p>
-
+        
         <div className="property-highlights">
           {property.highlights.slice(0, 2).map((highlight, index) => (
             <span key={index} className="highlight-tag">{highlight}</span>
           ))}
         </div>
-
+        
         <div className="property-dtcm">
           <span className="dtcm-code">DTCM: {property.dtcm}</span>
         </div>
-
+        
         <div className="property-price">
           <span className="price-label">From</span>
-          <PriceDisplay
-            price={property.price}
-            showPeriod={true}
+          <PriceDisplay 
+            price={property.price} 
+            showPeriod={true} 
             period="/ night"
             size="small"
             className="price-amount"
           />
         </div>
-
+        
         <div className="property-actions">
-          <button
+          <button 
             className="btn-secondary"
             onClick={() => onViewDetails(property)}
           >
             View Details
           </button>
-          <button
+          <button 
             className="btn-primary"
             onClick={() => onBookNow(property)}
           >
@@ -658,51 +710,55 @@ const BookingModal = ({ property, onClose, onSubmit }) => {
     guests: 1
   });
 
-  const [couponCode, setCouponCode] = useState('');
-  const [appliedCoupon, setAppliedCoupon] = useState(null);
-  const [couponError, setCouponError] = useState('');
-  const [couponSuccess, setCouponSuccess] = useState('');
-  const [showCouponList, setShowCouponList] = useState(false);
-
-  const handleApplyCoupon = () => {
-    setCouponError('');
-    setCouponSuccess('');
-
-    if (!couponCode.trim()) {
-      setCouponError('Please enter a coupon code');
-      return;
-    }
-
-    const total = calculateBaseTotal();
-    const validation = validateCoupon(couponCode, total);
-
-    if (validation.valid) {
-      setAppliedCoupon(validation.coupon);
-      setCouponSuccess(validation.message);
-      setCouponError('');
-    } else {
-      setCouponError(validation.message);
-      setAppliedCoupon(null);
-    }
-  };
-
-  const handleRemoveCoupon = () => {
-    setAppliedCoupon(null);
-    setCouponCode('');
-    setCouponError('');
-    setCouponSuccess('');
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Validate required fields
+    if (!bookingData.checkIn || !bookingData.checkOut) {
+      alert('Please select check-in and check-out dates');
+      return;
+    }
+
+    if (!bookingData.name || !bookingData.email || !bookingData.phone) {
+      alert('Please fill in all contact information (name, email, and phone)');
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(bookingData.email)) {
+      alert('Please enter a valid email address');
+      return;
+    }
+
+    // Validate dates
+    const checkIn = new Date(bookingData.checkIn);
+    const checkOut = new Date(bookingData.checkOut);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if (checkIn < today) {
+      alert('Check-in date cannot be in the past');
+      return;
+    }
+
+    if (checkOut <= checkIn) {
+      alert('Check-out date must be after check-in date');
+      return;
+    }
+
     const pricing = getPricingDetails();
+
+    if (pricing.finalTotal <= 0) {
+      alert('Please select valid dates for booking');
+      return;
+    }
 
     onSubmit({
       ...bookingData,
       propertyId: property.id,
       totalPrice: pricing.finalTotal,
-      coupon: appliedCoupon,
       pricingBreakdown: pricing
     });
   };
@@ -714,7 +770,7 @@ const BookingModal = ({ property, onClose, onSubmit }) => {
     if (nights <= 0) return 0;
 
     const basePrice = property.price * nights;
-    const cleaningFee = 400;
+    const cleaningFee = property.excludeCleaningFee ? 0 : 400;
     const taxes = basePrice * 0.08;
     return basePrice + cleaningFee + taxes;
   };
@@ -727,25 +783,20 @@ const BookingModal = ({ property, onClose, onSubmit }) => {
         cleaningFee: 0,
         taxes: 0,
         subtotal: 0,
-        discountAmount: 0,
+        automaticDiscount: 0,
         finalTotal: 0
       };
     }
 
     const nights = Math.ceil((new Date(bookingData.checkOut) - new Date(bookingData.checkIn)) / (1000 * 60 * 60 * 24));
     const basePrice = property.price * nights;
-    const cleaningFee = 400;
+    const cleaningFee = property.excludeCleaningFee ? 0 : 400;
     const taxes = basePrice * 0.08;
     const subtotal = basePrice + cleaningFee + taxes;
 
-    let discountAmount = 0;
-    let finalTotal = subtotal;
-
-    if (appliedCoupon) {
-      const discount = calculateDiscount(appliedCoupon, subtotal);
-      discountAmount = discount.discountAmount;
-      finalTotal = discount.finalAmount;
-    }
+    // Apply automatic 30% discount (skip if property excludes discount)
+    const automaticDiscount = property.excludeDiscount ? 0 : subtotal * 0.30;
+    const finalTotal = subtotal - automaticDiscount;
 
     return {
       nights,
@@ -753,21 +804,22 @@ const BookingModal = ({ property, onClose, onSubmit }) => {
       cleaningFee,
       taxes,
       subtotal,
-      discountAmount,
+      automaticDiscount,
+      discountAmount: 0,
       finalTotal,
-      discountPercentage: appliedCoupon ? appliedCoupon.discount : 0
+      discountPercentage: 0
     };
   };
 
   return (
-    <div className="booking-modal-overlay">
-      <div className="booking-modal">
+    <div className="booking-modal-overlay" style={{ pointerEvents: 'auto' }}>
+      <div className="booking-modal" style={{ pointerEvents: 'auto' }}>
         <div className="modal-header">
           <h2>Book {property.title}</h2>
           <button className="close-btn" onClick={onClose}>×</button>
         </div>
-
-        <form onSubmit={handleSubmit} className="booking-form">
+        
+        <form onSubmit={handleSubmit} className="booking-form" style={{ pointerEvents: 'auto' }}>
           <div className="booking-dates">
             <div className="date-field">
               <label>Check-in</label>
@@ -805,113 +857,96 @@ const BookingModal = ({ property, onClose, onSubmit }) => {
 
           <div className="contact-info">
             <h3>Contact Information</h3>
-            <div className="form-group">
-              <label>Full Name</label>
-              <input
-                type="text"
-                value={bookingData.name}
-                onChange={(e) => setBookingData(prev => ({ ...prev, name: e.target.value }))}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label>Email</label>
-              <input
-                type="email"
-                value={bookingData.email}
-                onChange={(e) => setBookingData(prev => ({ ...prev, email: e.target.value }))}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label>Phone</label>
-              <input
-                type="tel"
-                value={bookingData.phone}
-                onChange={(e) => setBookingData(prev => ({ ...prev, phone: e.target.value }))}
-                required
-              />
-            </div>
-          </div>
-
-          {/* Coupon Section */}
-          <div className="coupon-section">
-            <h3>Have a Coupon Code?</h3>
-            <p className="coupon-subtitle">Get 10% OFF on your booking!</p>
-
-            <div className="coupon-input-group">
-              <input
-                type="text"
-                className="coupon-input"
-                placeholder="Enter coupon code (e.g., WELCOME10)"
-                value={couponCode}
-                onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
-                disabled={appliedCoupon !== null}
-              />
-              {!appliedCoupon ? (
-                <button
-                  type="button"
-                  className="apply-coupon-btn"
-                  onClick={handleApplyCoupon}
-                >
-                  Apply
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  className="remove-coupon-btn"
-                  onClick={handleRemoveCoupon}
-                >
-                  Remove
-                </button>
-              )}
-            </div>
-
-            {couponError && (
-              <div className="coupon-message error">
-                ❌ {couponError}
-              </div>
-            )}
-
-            {couponSuccess && (
-              <div className="coupon-message success">
-                ✅ {couponSuccess}
-              </div>
-            )}
-
-            <div className="available-coupons">
-              <button
-                type="button"
-                className="show-coupons-btn"
-                onClick={() => setShowCouponList(!showCouponList)}
-              >
-                {showCouponList ? '▼' : '▶'} View Available Coupons
-              </button>
-
-              {showCouponList && (
-                <div className="coupon-list">
-                  {getActiveCoupons().map((coupon, index) => (
-                    <div
-                      key={index}
-                      className="coupon-item"
-                      onClick={() => {
-                        setCouponCode(coupon.code);
-                        setShowCouponList(false);
-                      }}
-                    >
-                      <div className="coupon-code-badge">{coupon.code}</div>
-                      <div className="coupon-description">
-                        <strong>{coupon.discount}% OFF</strong>
-                        <span>{coupon.description}</span>
-                        {coupon.minBooking > 0 && (
-                          <small>Min. booking: AED {coupon.minBooking}</small>
-                        )}
-                      </div>
-                    </div>
-                  ))}
+                <div className="form-group">
+                  <label htmlFor="booking-name">Full Name</label>
+                  <input
+                    id="booking-name"
+                    name="name"
+                    type="text"
+                    value={bookingData.name}
+                    onChange={(e) => {
+                      e.stopPropagation();
+                      setBookingData(prev => ({ ...prev, name: e.target.value }));
+                    }}
+                    onInput={(e) => {
+                      e.stopPropagation();
+                      setBookingData(prev => ({ ...prev, name: e.target.value }));
+                    }}
+                    onClick={(e) => e.stopPropagation()}
+                    onFocus={(e) => e.stopPropagation()}
+                    required
+                    autoComplete="name"
+                    tabIndex={1}
+                    readOnly={false}
+                    disabled={false}
+                    style={{ 
+                      pointerEvents: 'auto', 
+                      cursor: 'text',
+                      zIndex: 10000,
+                      position: 'relative'
+                    }}
+                  />
                 </div>
-              )}
-            </div>
+                <div className="form-group">
+                  <label htmlFor="booking-email">Email</label>
+                  <input
+                    id="booking-email"
+                    name="email"
+                    type="email"
+                    value={bookingData.email}
+                    onChange={(e) => {
+                      e.stopPropagation();
+                      setBookingData(prev => ({ ...prev, email: e.target.value }));
+                    }}
+                    onInput={(e) => {
+                      e.stopPropagation();
+                      setBookingData(prev => ({ ...prev, email: e.target.value }));
+                    }}
+                    onClick={(e) => e.stopPropagation()}
+                    onFocus={(e) => e.stopPropagation()}
+                    required
+                    autoComplete="email"
+                    tabIndex={2}
+                    readOnly={false}
+                    disabled={false}
+                    style={{ 
+                      pointerEvents: 'auto', 
+                      cursor: 'text',
+                      zIndex: 10000,
+                      position: 'relative'
+                    }}
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="booking-phone">Phone</label>
+                  <input
+                    id="booking-phone"
+                    name="phone"
+                    type="tel"
+                    value={bookingData.phone}
+                    onChange={(e) => {
+                      e.stopPropagation();
+                      setBookingData(prev => ({ ...prev, phone: e.target.value }));
+                    }}
+                    onInput={(e) => {
+                      e.stopPropagation();
+                      setBookingData(prev => ({ ...prev, phone: e.target.value }));
+                    }}
+                    onClick={(e) => e.stopPropagation()}
+                    onFocus={(e) => e.stopPropagation()}
+                    required
+                    autoComplete="tel"
+                    tabIndex={3}
+                    readOnly={false}
+                    disabled={false}
+                    style={{ 
+                      pointerEvents: 'auto', 
+                      cursor: 'text',
+                      zIndex: 10000,
+                      position: 'relative'
+                    }}
+                  />
+                </div>
           </div>
 
           <div className="booking-summary">
@@ -920,47 +955,48 @@ const BookingModal = ({ property, onClose, onSubmit }) => {
               const pricing = getPricingDetails();
               return (
                 <>
-                  <div className="summary-line">
-                    <span>
+            <div className="summary-line">
+              <span>
                       <PriceDisplay price={property.price} size="small" /> × {pricing.nights} nights
-                    </span>
+              </span>
                     <PriceDisplay price={pricing.basePrice} size="small" />
-                  </div>
-                  <div className="summary-line">
-                    <span>Cleaning fee</span>
+            </div>
+            <div className="summary-line">
+              <span>Cleaning fee</span>
                     <PriceDisplay price={pricing.cleaningFee} size="small" />
-                  </div>
-                  <div className="summary-line">
+            </div>
+            <div className="summary-line">
                     <span>Service charges (8%)</span>
                     <PriceDisplay price={pricing.taxes} size="small" />
-                  </div>
+            </div>
 
-                  {appliedCoupon && (
-                    <>
-                      <div className="summary-line subtotal">
-                        <span>Subtotal</span>
-                        <PriceDisplay price={pricing.subtotal} size="small" />
-                      </div>
-                      <div className="summary-line discount">
-                        <span className="discount-label">
-                          🎉 Discount ({appliedCoupon.discount}%)
-                          <small>{appliedCoupon.code}</small>
-                        </span>
-                        <span className="discount-amount">
-                          -<PriceDisplay price={pricing.discountAmount} size="small" />
-                        </span>
-                      </div>
-                    </>
+                  {!property.excludeDiscount && (
+                    <div className="summary-line subtotal">
+                      <span>Subtotal</span>
+                      <PriceDisplay price={pricing.subtotal} size="small" />
+                    </div>
                   )}
 
-                  <div className="summary-line total">
-                    <span>Total</span>
-                    <PriceDisplay price={pricing.finalTotal} size="medium" className="price-primary" />
-                  </div>
+                  {/* Automatic 30% Discount - Only show if property doesn't exclude discount */}
+                  {!property.excludeDiscount && pricing.automaticDiscount > 0 && (
+                    <div className="summary-line discount automatic-discount">
+                      <span className="discount-label">
+                        🎉 Special Offer (30% OFF)
+                      </span>
+                      <span className="discount-amount">
+                        -<PriceDisplay price={pricing.automaticDiscount} size="small" />
+                      </span>
+                    </div>
+                  )}
 
-                  {appliedCoupon && (
-                    <div className="savings-badge">
-                      💰 You saved <PriceDisplay price={pricing.discountAmount} size="small" />!
+            <div className="summary-line total">
+              <span>Total</span>
+                    <PriceDisplay price={pricing.finalTotal} size="medium" className="price-primary" />
+            </div>
+
+                  {!property.excludeDiscount && pricing.automaticDiscount > 0 && (
+                    <div className="savings-badge automatic-savings">
+                      💰 You saved <PriceDisplay price={pricing.automaticDiscount} size="small" /> with our special offer!
                     </div>
                   )}
                 </>

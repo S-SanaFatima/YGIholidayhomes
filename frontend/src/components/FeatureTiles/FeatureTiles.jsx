@@ -5,27 +5,19 @@ const FeatureTiles = ({ onNavigate }) => {
   const tiles = [
     {
       id: 1,
-      title: "Dubai Communities",
-      subtitle: "Covering 100+ communities, we can help you find one that ticks your boxes",
-      cta: "Explore Dubai",
-      image: "/Images/66deceb807bb4e3770db189e_RHONJ_S5E13_The Miraval Resort and Spa_1.avif",
-      navigateTo: "contact"
-    },
-    {
-      id: 2,
-      title: "Explore Best Apartments",
-      subtitle: "Search our team of 289 properties to get professional guidance",
+      title: "Explore Best Apartments in Dubai",
+      subtitle: "Browse our portfolio of apartments for rent in Dubai featuring modern furnishings, fully equipped kitchens, and premium amenities. We offer flexible booking options, ensuring guests can stay for a few nights or several months in comfort and style.",
       cta: "Explore Properties",
       image: "/Images/66ded2500ba8686872db2330_RHONJ_S8E10-11_Casa Baglioni _1-topaz.avif",
       navigateTo: "book"
     },
     {
-      id: 3,
-      title: "Find Short Term Rentals",
-      subtitle: "Premium locations in Dubai with luxury amenities",
+      id: 2,
+      title: "Flexible Short Term Rentals",
+      subtitle: "YGI Holiday Homes offers flexible short term rentals in Dubai with convenient booking and stay options: Daily, weekly, or monthly stays available. Options for families, couples, and solo travelers. Secure online booking with instant confirmation.",
       cta: "View Rentals",
       image: "/Images/66ded489b23da42fb7825969_RHONJ_S10E11-12_Hamptons-3.avif",
-      navigateTo: "expert"
+      navigateTo: "book"
     }
   ];
 

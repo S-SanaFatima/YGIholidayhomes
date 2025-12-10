@@ -93,6 +93,11 @@ const Footer = ({ onNavigate }) => {
           {/* Copyright */}
           <div className="footer-bottom">
             <p className="copyright">© 2025 YGI Holiday Homes</p>
+            <div className="footer-legal-links">
+              <button className="footer-link" onClick={() => onNavigate('privacy')}>Privacy Policy</button>
+              <span className="footer-link-separator">|</span>
+              <button className="footer-link" onClick={() => onNavigate('terms')}>Terms & Conditions</button>
+            </div>
           </div>
         </div>
       </div>

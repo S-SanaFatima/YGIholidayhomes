@@ -238,7 +238,21 @@
 /* Welcome Section */
 .welcome-section {
   padding: 80px 0;
-  background: #f8f9fa;
+  background: linear-gradient(135deg, #EAF7F1 0%, #ffffff 50%, #EAF7F1 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(15, 169, 104, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 80% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .welcome-content {
@@ -250,18 +264,29 @@
   margin: 0 auto;
 }
 
+.welcome-text {
+  text-align: left;
+}
+
 .welcome-text h2 {
   font-size: 2.5rem;
-  color: #1a1a1a;
+  color: #0D3B2E;
   margin-bottom: 1.5rem;
-  font-weight: 600;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: left;
+  background: linear-gradient(135deg, #0D3B2E 0%, #0FA968 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .welcome-text p {
   font-size: 1.1rem;
   color: #3B4555;
-  line-height: 1.6;
-  margin-bottom: 2rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  text-align: left;
 }
 
 .perks-list {
@@ -269,25 +294,44 @@
   flex-direction: column;
   gap: 1rem;
   margin-bottom: 2rem;
+  text-align: left;
 }
 
 .perk-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
+  text-align: left;
 }
 
 .perk-icon {
-  width: 24px;
-  height: 24px;
-  background: #1a1a1a;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  background: linear-gradient(135deg, #0FA968 0%, #0d8a56 100%);
   color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(15, 169, 104, 0.3);
+}
+
+.perk-item span {
+  flex: 1;
+  font-size: 1.1rem;
+  color: #3B4555;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.welcome-text .btn {
+  margin-top: 0.5rem;
+  text-align: center;
+  display: inline-block;
 }
 
 .welcome-image img {
@@ -300,15 +344,15 @@
 /* Process Steps */
 .process-steps {
   padding: 80px 0;
-  background: white;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
 }
 
 .process-steps h2 {
   text-align: center;
   font-size: 2.5rem;
-  color: #1a1a1a;
+  color: #0D3B2E;
   margin-bottom: 3rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .steps-rail {
@@ -323,19 +367,39 @@
   padding: 2rem;
   background: white;
   border-radius: 20px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(15, 169, 104, 0.1);
+  border: 2px solid rgba(15, 169, 104, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.step-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0FA968 0%, #FFD700 100%);
+  transform: scaleX(0);
   transition: transform 0.3s ease;
 }
 
 .step-item:hover {
   transform: translateY(-5px);
+  border-color: #0FA968;
+  box-shadow: 0 15px 40px rgba(15, 169, 104, 0.2);
+}
+
+.step-item:hover::before {
+  transform: scaleX(1);
 }
 
 .step-icon {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+  background: linear-gradient(135deg, #0FA968 0%, #0d8a56 100%);
   color: white;
   border-radius: 50%;
   display: flex;
@@ -344,11 +408,12 @@
   font-size: 1.5rem;
   font-weight: bold;
   margin: 0 auto 1rem;
+  box-shadow: 0 8px 20px rgba(15, 169, 104, 0.3);
 }
 
 .step-item h3 {
   font-size: 1.3rem;
-  color: #1a1a1a;
+  color: #0D3B2E;
   margin-bottom: 1rem;
   font-weight: 600;
 }
@@ -365,23 +430,35 @@
 /* Benefits Section */
 .benefits-section {
   padding: 80px 0;
-  background: #f8f9fa;
+  background: linear-gradient(135deg, #EAF7F1 0%, #ffffff 100%);
+  position: relative;
 }
 
 .benefits-section h2 {
   text-align: center;
   font-size: 2.5rem;
-  color: #1a1a1a;
+  color: #0D3B2E;
   margin-bottom: 1rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .benefits-section h3 {
   text-align: center;
   font-size: 1.8rem;
+  color: #0FA968;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.benefits-intro {
+  text-align: center;
   color: #3B4555;
+  font-size: 1.1rem;
+  line-height: 1.6;
   margin-bottom: 3rem;
-  font-weight: 500;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .benefits-grid {
@@ -396,18 +473,38 @@
   padding: 2rem;
   border-radius: 20px;
   text-align: center;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(15, 169, 104, 0.1);
+  border: 2px solid rgba(15, 169, 104, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.benefit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0FA968 0%, #FFD700 100%);
+  transform: scaleX(0);
   transition: transform 0.3s ease;
 }
 
 .benefit-card:hover {
   transform: translateY(-5px);
+  border-color: #0FA968;
+  box-shadow: 0 15px 40px rgba(15, 169, 104, 0.2);
+}
+
+.benefit-card:hover::before {
+  transform: scaleX(1);
 }
 
 .benefit-card h4 {
   font-size: 1.2rem;
-  color: #1a1a1a;
+  color: #0D3B2E;
   font-weight: 600;
   line-height: 1.4;
 }
@@ -422,6 +519,14 @@
 .revenue-models {
   padding: 80px 0;
   background: white;
+}
+
+.revenue-models h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #0D3B2E;
+  margin-bottom: 3rem;
+  font-weight: 700;
 }
 
 .models-tabs {
@@ -457,15 +562,27 @@
 .model-info {
   text-align: center;
   padding: 2rem;
-  background: #f8f9fa;
+  background: linear-gradient(135deg, #EAF7F1 0%, #ffffff 100%);
   border-radius: 20px;
+  border: 2px solid rgba(15, 169, 104, 0.2);
+  transition: all 0.3s ease;
+}
+
+.model-info:hover {
+  border-color: #0FA968;
+  box-shadow: 0 10px 30px rgba(15, 169, 104, 0.15);
+  transform: translateY(-3px);
 }
 
 .model-info h3 {
   font-size: 1.5rem;
-  color: #1a1a1a;
+  color: #0D3B2E;
   margin-bottom: 1rem;
-  font-weight: 600;
+  font-weight: 700;
+  background: linear-gradient(135deg, #0D3B2E 0%, #0FA968 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .model-info p {
@@ -473,18 +590,238 @@
   line-height: 1.6;
 }
 
+/* Why Rent Section */
+.why-rent-section {
+  padding: 80px 0;
+  background: linear-gradient(180deg, #ffffff 0%, #EAF7F1 100%);
+}
+
+.why-rent-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #0D3B2E;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.why-rent-intro {
+  text-align: center;
+  color: #3B4555;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.why-rent-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.why-rent-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(15, 169, 104, 0.1);
+  border: 2px solid rgba(15, 169, 104, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.why-rent-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0FA968 0%, #FFD700 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.why-rent-item:hover {
+  transform: translateY(-5px);
+  border-color: #0FA968;
+  box-shadow: 0 15px 40px rgba(15, 169, 104, 0.2);
+}
+
+.why-rent-item:hover::before {
+  transform: scaleX(1);
+}
+
+.why-rent-item h4 {
+  font-size: 1.2rem;
+  color: #0D3B2E;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.why-rent-note {
+  text-align: center;
+  color: #3B4555;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* About Rent Section */
+.about-rent-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #ffffff 0%, #EAF7F1 100%);
+}
+
+.about-rent-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #0D3B2E;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.about-rent-section p {
+  color: #3B4555;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* Maximize Income Section */
+.maximize-income-section {
+  padding: 80px 0;
+  background: linear-gradient(180deg, #EAF7F1 0%, #ffffff 100%);
+}
+
+.maximize-income-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #0D3B2E;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.maximize-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.maximize-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(15, 169, 104, 0.1);
+  border: 2px solid rgba(15, 169, 104, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.maximize-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0FA968 0%, #FFD700 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.maximize-item:hover {
+  transform: translateY(-5px);
+  border-color: #0FA968;
+  box-shadow: 0 15px 40px rgba(15, 169, 104, 0.2);
+}
+
+.maximize-item:hover::before {
+  transform: scaleX(1);
+}
+
+.maximize-item h3 {
+  font-size: 1.5rem;
+  color: #0D3B2E;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.maximize-item p {
+  color: #3B4555;
+  line-height: 1.6;
+}
+
+/* FAQs Rent Section */
+.faqs-rent-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #EAF7F1 0%, #ffffff 100%);
+}
+
+.faqs-rent-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #0D3B2E;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.faqs-list {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 10px 30px rgba(15, 169, 104, 0.1);
+  border: 2px solid rgba(15, 169, 104, 0.1);
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: #0FA968;
+  box-shadow: 0 15px 40px rgba(15, 169, 104, 0.15);
+  transform: translateY(-2px);
+}
+
+.faq-item h3 {
+  font-size: 1.3rem;
+  color: #0D3B2E;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.faq-item p {
+  color: #3B4555;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
 /* Testimonials */
 .testimonials {
   padding: 80px 0;
-  background: #f8f9fa;
+  background: linear-gradient(135deg, #EAF7F1 0%, #ffffff 100%);
 }
 
 .testimonials h2 {
   text-align: center;
   font-size: 2.5rem;
-  color: #1a1a1a;
+  color: #0D3B2E;
   margin-bottom: 3rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .testimonials-grid {
@@ -498,9 +835,16 @@
   background: white;
   padding: 0;
   border-radius: 20px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(15, 169, 104, 0.1);
+  border: 2px solid rgba(15, 169, 104, 0.1);
   overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  border-color: #0FA968;
+  box-shadow: 0 15px 40px rgba(15, 169, 104, 0.2);
 }
 
 .testimonial-image {
@@ -535,7 +879,7 @@
 .author-avatar {
   width: 50px;
   height: 50px;
-  background: #1a1a1a;
+  background: linear-gradient(135deg, #0FA968 0%, #0d8a56 100%);
   color: white;
   border-radius: 50%;
   display: flex;
@@ -543,10 +887,11 @@
   justify-content: center;
   font-weight: bold;
   font-size: 1.2rem;
+  box-shadow: 0 4px 12px rgba(15, 169, 104, 0.3);
 }
 
 .author-info h4 {
-  color: #1a1a1a;
+  color: #0D3B2E;
   margin-bottom: 0.25rem;
   font-weight: 600;
 }
@@ -571,17 +916,19 @@
 .form-container {
   max-width: 800px;
   margin: 0 auto;
-  background: #f8f9fa;
+  background: linear-gradient(135deg, #EAF7F1 0%, #ffffff 100%);
   padding: 3rem;
   border-radius: 20px;
+  border: 2px solid rgba(15, 169, 104, 0.2);
+  box-shadow: 0 10px 30px rgba(15, 169, 104, 0.1);
 }
 
 .form-container h2 {
   text-align: center;
   font-size: 2rem;
-  color: #1a1a1a;
+  color: #0D3B2E;
   margin-bottom: 2rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .rent-form {
@@ -623,8 +970,8 @@
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #1a1a1a;
-  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
+  border-color: #0FA968;
+  box-shadow: 0 0 0 3px rgba(15, 169, 104, 0.1);
 }
 
 .checkbox-group {
@@ -657,15 +1004,38 @@
 /* Secondary CTA */
 .secondary-cta {
   padding: 80px 0;
-  background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+  background: linear-gradient(135deg, #0D3B2E 0%, #0FA968 50%, #0D3B2E 100%);
   color: white;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.secondary-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .secondary-cta h2 {
   font-size: 2.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   font-weight: 600;
+}
+
+.cta-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .cta-buttons {
@@ -692,16 +1062,19 @@
 }
 
 .btn-primary {
-  background: white;
-  color: #1a1a1a;
-  border-color: white;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #0D3B2E;
+  border-color: #FFD700;
+  font-weight: 700;
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
 }
 
 .btn-primary:hover {
-  background: transparent;
-  color: white;
-  border-color: white;
+  background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
+  color: #0D3B2E;
+  border-color: #FFD700;
   transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
 }
 
 .btn-secondary {
@@ -719,14 +1092,17 @@
 
 .btn-outline {
   background: transparent;
-  color: #1a1a1a;
-  border-color: #1a1a1a;
+  color: #0D3B2E;
+  border-color: #0FA968;
+  font-weight: 600;
 }
 
 .btn-outline:hover {
-  background: #1a1a1a;
+  background: linear-gradient(135deg, #0FA968 0%, #0d8a56 100%);
   color: white;
+  border-color: #0FA968;
   transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(15, 169, 104, 0.3);
 }
 
 /* Container */
@@ -750,6 +1126,16 @@
     font-size: 1.8rem;
   }
   
+  .maximize-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+}
+
+@media (max-width: 900px) {
+  .maximize-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -841,6 +1227,14 @@
   }
   
   .model-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .why-rent-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .maximize-grid {
     grid-template-columns: 1fr;
   }
   

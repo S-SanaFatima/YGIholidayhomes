@@ -56,9 +56,9 @@ const FeaturedProperties = ({ onNavigate }) => {
     },
     {
       id: 3,
-      title: "Cozy 2-BR • Marina Residence 2",
+      title: "Sea View 2BHK in Palm Jumeirah Marina",
       location: "Marina Residence 2, Palm Jumeirah",
-      price: 2000,
+      price: 2500,
       rating: 4.9,
       reviews: 156,
       image: "/Marina residency tower 2/Living room/0111eadd-7b05-4a99-841d-100a4f6b1e2a.avif",

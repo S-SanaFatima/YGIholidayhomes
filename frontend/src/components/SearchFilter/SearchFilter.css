@@ -4,12 +4,27 @@
   margin: 0 auto;
   padding: 24px 16px 48px;
 }
+.search-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
 .search-title {
   font-size: clamp(28px, 4vw, 44px);
   font-weight: 700;
   text-align: center;
-  margin: 24px 0 24px;
+  margin: 24px 0 16px;
   line-height: 1.15;
+  color: #0D3B2E;
+}
+
+.search-description {
+  font-size: 1.1rem;
+  color: #3B4555;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 /* Quick Search Tags */
@@ -164,4 +179,29 @@
 /* Make the button full-width on mobile for easy tapping */
 @media (max-width: 600px) {
   .btn-primary { width: 100%; }
+}
+
+/* Search Stats */
+.search-stats {
+  text-align: center;
+  margin-top: 32px;
+  padding: 24px;
+  background: linear-gradient(135deg, #EAF7F1 0%, #ffffff 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(15, 169, 104, 0.1);
+}
+
+.search-stats p {
+  font-size: 1.1rem;
+  color: #3B4555;
+  line-height: 1.8;
+  margin: 0;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-stats strong {
+  color: #0FA968;
+  font-weight: 700;
 }
