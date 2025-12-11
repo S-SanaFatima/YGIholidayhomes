@@ -302,8 +302,8 @@ app.use('*', (req, res) => {
   });
 });
 
-app.listen(PORT, '0.0.0.0', () => {
+app.listen(PORT, () => {
   console.log(`🚀 YGI Backend server running on port ${PORT}`);
-  console.log(`📊 Health check: http://0.0.0.0:${PORT}/health`);
+  console.log(`📊 Health check: http://localhost:${PORT}/health`);
   console.log(`💳 Stripe integration ready`);
 });
