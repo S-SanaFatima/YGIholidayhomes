@@ -52,7 +52,7 @@ if (process.env.FRONTEND_URL) {
 
 app.use(cors({
   origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl requests)
+    // Allow requests with no origin (like mobile apps, curl requests, or health checks from load balancers)
     if (!origin) return callback(null, true);
 
     if (allowedOrigins.indexOf(origin) !== -1) {
@@ -66,9 +66,22 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// Health check endpoint
+// Health check endpoint - should be accessible without CORS issues
 app.get('/health', (req, res) => {
-  res.json({ status: 'OK', message: 'YGI Backend API is running' });
+  try {
+    res.json({ 
+      status: 'OK', 
+      message: 'YGI Backend API is running',
+      timestamp: new Date().toISOString(),
+      uptime: process.uptime()
+    });
+  } catch (error) {
+    console.error('Health check error:', error);
+    res.status(500).json({ 
+      status: 'ERROR', 
+      message: 'Health check failed' 
+    });
+  }
 });
 
 // Create Payment Intent
@@ -302,8 +315,9 @@ app.use('*', (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
+// Bind to 0.0.0.0 to accept connections from all interfaces (required for reverse proxies/load balancers)
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 YGI Backend server running on port ${PORT}`);
-  console.log(`📊 Health check: http://localhost:${PORT}/health`);
+  console.log(`📊 Health check: http://0.0.0.0:${PORT}/health`);
   console.log(`💳 Stripe integration ready`);
 });
