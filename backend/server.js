@@ -1,6 +1,18 @@
 require('dotenv').config();
 const express = require('express');
 
+// Global error handlers for debugging 502s
+process.on('uncaughtException', (err) => {
+  console.error('❌ UNCAUGHT EXCEPTION:', err);
+  // Keep process alive for a moment to flush logs? No, best to crash but log it clearly
+  process.exit(1);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('❌ UNHANDLED REJECTION:', reason);
+});
+
+
 // Debug environment variables
 console.log('🔍 Environment Variables Debug:');
 console.log('STRIPE_SECRET_KEY:', process.env.STRIPE_SECRET_KEY ? '✅ Loaded' : '❌ Missing');
