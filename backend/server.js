@@ -25,8 +25,31 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(helmet());
 app.use(morgan('combined'));
+// Define allowed origins
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'https://ygiholidayhomes.com',
+  'https://ygiholidayhomes-production.up.railway.app'
+];
+
+if (process.env.FRONTEND_URL) {
+  const envOrigins = process.env.FRONTEND_URL.split(',').map(url => url.trim());
+  allowedOrigins.push(...envOrigins);
+}
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL || ['http://localhost:5173', 'http://localhost:3000', 'https://ygiholidayhomes.com'],
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      console.log('Blocked by CORS:', origin);
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 app.use(express.json());
@@ -43,13 +66,13 @@ app.post('/create-payment-intent', async (req, res) => {
     console.log('Request body:', JSON.stringify(req.body, null, 2));
     console.log('Stripe key loaded:', !!STRIPE_SECRET_KEY);
     console.log('Stripe instance initialized:', !!stripe);
-    
+
     const { amount, currency = 'aed', metadata = {} } = req.body;
 
     // Validate amount
     if (!amount || isNaN(amount) || amount < 50) {
       console.log('❌ Invalid amount:', amount);
-      return res.status(400).json({ 
+      return res.status(400).json({
         error: 'Invalid amount. Minimum amount is AED 50',
         received: amount,
         type: typeof amount
@@ -90,17 +113,17 @@ app.post('/create-payment-intent', async (req, res) => {
     console.error('Error code:', error.code);
     console.error('Error status:', error.status);
     console.error('Error stack:', error.stack);
-    
+
     // More detailed error response
     const errorResponse = {
       error: 'Failed to create payment intent',
       message: error.message,
       type: error.constructor.name
     };
-    
+
     if (error.code) errorResponse.code = error.code;
     if (error.status) errorResponse.status = error.status;
-    
+
     res.status(500).json(errorResponse);
   }
 });
@@ -111,8 +134,8 @@ app.post('/confirm-payment', async (req, res) => {
     const { paymentIntentId, paymentMethodId } = req.body;
 
     if (!paymentIntentId || !paymentMethodId) {
-      return res.status(400).json({ 
-        error: 'Payment intent ID and payment method ID are required' 
+      return res.status(400).json({
+        error: 'Payment intent ID and payment method ID are required'
       });
     }
 
@@ -128,9 +151,9 @@ app.post('/confirm-payment', async (req, res) => {
 
   } catch (error) {
     console.error('Error confirming payment:', error);
-    res.status(500).json({ 
+    res.status(500).json({
       error: 'Failed to confirm payment',
-      message: error.message 
+      message: error.message
     });
   }
 });
@@ -151,9 +174,9 @@ app.get('/payment-status/:paymentIntentId', async (req, res) => {
 
   } catch (error) {
     console.error('Error retrieving payment intent:', error);
-    res.status(500).json({ 
+    res.status(500).json({
       error: 'Failed to retrieve payment status',
-      message: error.message 
+      message: error.message
     });
   }
 });
@@ -161,24 +184,24 @@ app.get('/payment-status/:paymentIntentId', async (req, res) => {
 // Create Booking Record (after successful payment)
 app.post('/create-booking', async (req, res) => {
   try {
-    const { 
-      paymentIntentId, 
-      propertyName, 
-      checkIn, 
-      checkOut, 
-      guests, 
+    const {
+      paymentIntentId,
+      propertyName,
+      checkIn,
+      checkOut,
+      guests,
       totalAmount,
       guestName,
       email,
-      phone 
+      phone
     } = req.body;
 
     // Verify payment was successful
     const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
-    
+
     if (paymentIntent.status !== 'succeeded') {
-      return res.status(400).json({ 
-        error: 'Payment not completed' 
+      return res.status(400).json({
+        error: 'Payment not completed'
       });
     }
 
@@ -208,15 +231,15 @@ app.post('/create-booking', async (req, res) => {
 
   } catch (error) {
     console.error('Error creating booking:', error);
-    res.status(500).json({ 
+    res.status(500).json({
       error: 'Failed to create booking',
-      message: error.message 
+      message: error.message
     });
   }
 });
 
 // Webhook endpoint for Stripe events
-app.post('/webhook', express.raw({type: 'application/json'}), (req, res) => {
+app.post('/webhook', express.raw({ type: 'application/json' }), (req, res) => {
   const sig = req.headers['stripe-signature'];
   let event;
 
@@ -243,27 +266,32 @@ app.post('/webhook', express.raw({type: 'application/json'}), (req, res) => {
       console.log(`Unhandled event type ${event.type}`);
   }
 
-  res.json({received: true});
+  res.json({ received: true });
 });
 
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).json({ 
+  res.status(500).json({
     error: 'Something went wrong!',
     message: process.env.NODE_ENV === 'development' ? err.message : 'Internal server error'
   });
 });
 
+// Root handler for default health checks
+app.get('/', (req, res) => {
+  res.json({ status: 'OK', service: 'YGI Backend' });
+});
+
 // 404 handler
 app.use('*', (req, res) => {
-  res.status(404).json({ 
-    error: 'Route not found' 
+  res.status(404).json({
+    error: 'Route not found'
   });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 YGI Backend server running on port ${PORT}`);
-  console.log(`📊 Health check: http://localhost:${PORT}/health`);
+  console.log(`📊 Health check: http://0.0.0.0:${PORT}/health`);
   console.log(`💳 Stripe integration ready`);
 });
