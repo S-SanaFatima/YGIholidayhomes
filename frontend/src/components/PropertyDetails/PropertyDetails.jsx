@@ -45,8 +45,11 @@ const PropertyDetails = ({ property, onNavigate, onBookNow }) => {
 
     // Structure data to match Payment component expectations
     // Pass ORIGINAL price - discount will be applied in BookApartment component
+    // Explicitly preserve all property flags
     const paymentData = {
       ...property, // Include all property details (price, title, etc.) - use original price
+      excludeCleaningFee: property?.excludeCleaningFee || false, // Explicitly preserve flag
+      excludeDiscount: property?.excludeDiscount || false, // Explicitly preserve flag
       bookingData: {
         checkIn: bookingData.checkIn,
         checkOut: bookingData.checkOut,

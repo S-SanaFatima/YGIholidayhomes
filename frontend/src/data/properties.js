@@ -131,6 +131,7 @@ export const properties = [
     sleeps: "BR1 — 1 King · BR2 — 2 Singles",
     featured: true,
     available: true,
+    excludeCleaningFee: false,
     slug: "waterfront-2bhk-princess-tower-marina",
     description: "Welcome to the Princess Tower Dubai Marina! Our bright, modern 2BR apartment blends contemporary design cozy comfort, offering a stylish yet welcoming space. Fully furnished -Spacious Living area -A beautiful balcony to enjoy breathtaking views -Offers variety of attractions, Dubai Marina Mall, the main shopping centre for the area is just a 5-7 minute walk -The bustling JBR area in about a 10-15 minute walk - A comfortable walk only take about 5-7 minutes to Dubai metro.",
     space: {

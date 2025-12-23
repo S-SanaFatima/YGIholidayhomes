@@ -4,39 +4,49 @@ const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx3hexYg
 export const submitBookingToGoogleSheets = async (bookingData) => {
   try {
     // Check if URL is properly configured
-    if (GOOGLE_APPS_SCRIPT_URL.includes('YOUR_SCRIPT_ID')) {
-      throw new Error('Google Apps Script URL not configured. Please update the URL in googleSheets.js');
+    if (!GOOGLE_APPS_SCRIPT_URL || GOOGLE_APPS_SCRIPT_URL.includes('YOUR_SCRIPT_ID')) {
+      console.warn('⚠️ Google Apps Script URL not configured');
+      return {
+        success: false,
+        message: 'Google Sheets integration not configured',
+        error: 'URL not configured'
+      };
+    }
+
+    // Validate required data
+    if (!bookingData || typeof bookingData !== 'object') {
+      console.warn('⚠️ Invalid booking data provided');
+      return {
+        success: false,
+        message: 'Invalid booking data',
+        error: 'No booking data provided'
+      };
     }
 
     // Use form submission method to avoid CORS issues
-    console.log('Submitting booking data via form method:', bookingData);
-    console.log('Using URL:', GOOGLE_APPS_SCRIPT_URL);
+    console.log('📤 Submitting booking data to Google Sheets:', bookingData);
+    console.log('🔗 Using URL:', GOOGLE_APPS_SCRIPT_URL);
 
+    // Call submitBookingViaForm - it handles all errors internally
     const result = await submitBookingViaForm(bookingData);
-    console.log('Form submission result:', result);
+    console.log('📥 Form submission result:', result);
     
-    // Always return success for form submission since we can't read the response
-    // The actual success/failure will be visible in the new tab
-    return {
-      success: true,
-      message: 'Booking submitted successfully! Please check the confirmation tab.',
-      bookingId: Date.now(),
-      note: 'Form submitted to Google Sheets. Check the new tab for confirmation.'
+    // Return the result (will always be an object, never throws)
+    return result || {
+      success: false,
+      message: 'Unknown error occurred',
+      error: 'No result returned'
     };
 
   } catch (error) {
-    console.error('Error submitting booking to Google Sheets:', error);
+    // This catch should rarely be hit since submitBookingViaForm handles errors
+    console.warn('⚠️ Unexpected error in submitBookingToGoogleSheets (non-critical):', error);
     
-    // Provide more specific error messages
-    let errorMessage = 'Failed to submit booking. Please try again.';
-    if (error.message.includes('URL not configured')) {
-      errorMessage = 'Google Sheets integration not configured. Please contact support.';
-    }
-    
+    // Always return an object, never throw
     return {
       success: false,
-      message: errorMessage,
-      error: error.message
+      message: 'Failed to submit booking to Google Sheets',
+      error: error?.message || 'Unknown error'
     };
   }
 };
@@ -44,19 +54,21 @@ export const submitBookingToGoogleSheets = async (bookingData) => {
 // Proper fetch method with JSON response handling and no redirects
 export const submitBookingViaForm = async (bookingData) => {
   try {
-    // Prepare form data
+    // Validate and prepare form data - match the exact field names expected by Google Apps Script
+    if (!bookingData || typeof bookingData !== 'object') {
+      throw new Error('Invalid booking data provided');
+    }
+
     const fields = {
-      propertyId: bookingData.propertyId || 'Unknown',
-      propertyName: bookingData.propertyName || 'Unknown Property',
-      guestName: bookingData.name || 'Unknown Guest',
-      email: bookingData.email || 'no-email@example.com',
-      phone: bookingData.phone || 'No Phone',
-      checkIn: bookingData.checkIn || '2024-01-01',
-      checkOut: bookingData.checkOut || '2024-01-02',
-      guests: bookingData.guests || 1,
-      totalPrice: bookingData.totalPrice || 0,
-      timestamp: new Date().toISOString(),
-      source: 'YGI Website'
+      propertyId: String(bookingData.propertyId || 'Unknown'),
+      propertyName: String(bookingData.propertyName || 'Unknown Property'),
+      guestName: String(bookingData.name || bookingData.guestName || 'Unknown Guest'),
+      email: String(bookingData.email || 'no-email@example.com'),
+      phone: String(bookingData.phone || 'No Phone'),
+      checkIn: String(bookingData.checkIn || '2024-01-01'),
+      checkOut: String(bookingData.checkOut || '2024-01-02'),
+      guests: String(bookingData.guests || 1),
+      totalPrice: String(bookingData.totalPrice || 0)
     };
 
     // Debug: Log the exact data being sent
@@ -65,85 +77,73 @@ export const submitBookingViaForm = async (bookingData) => {
     console.log('Form fields being sent:', fields);
     console.log('Google Apps Script URL:', GOOGLE_APPS_SCRIPT_URL);
 
-    // Create FormData for POST request
-    const formData = new FormData();
+    // Validate URL
+    if (!GOOGLE_APPS_SCRIPT_URL || !GOOGLE_APPS_SCRIPT_URL.startsWith('http')) {
+      throw new Error('Invalid Google Apps Script URL');
+    }
+
+    // Create URLSearchParams for form data (more reliable than FormData for Google Apps Script)
+    const formData = new URLSearchParams();
     Object.entries(fields).forEach(([key, value]) => {
-      formData.append(key, String(value));
+      try {
+        formData.append(key, String(value));
+      } catch (appendError) {
+        console.warn(`Failed to append field ${key}:`, appendError);
+      }
     });
 
-    // Submit via fetch API - this will NOT redirect the page
-    const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
-      method: 'POST',
-      body: formData,
-      mode: 'cors' // Use cors to be able to read the JSON response
-    });
+    // Submit via fetch API with proper headers and timeout
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
 
-    // Handle the JSON response from Google Apps Script
-    if (response.ok) {
-      const data = await response.json();
-      console.log('Google Apps Script response:', data);
+    try {
+      const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: formData.toString(),
+        mode: 'no-cors', // Google Apps Script requires no-cors mode
+        signal: controller.signal
+      });
+
+      clearTimeout(timeoutId);
+
+      // With no-cors mode, we can't read the response, but the request was sent
+      // Log that we attempted the submission
+      console.log('✅ Google Sheets submission request sent (no-cors mode)');
+      console.log('Submitted data:', fields);
       
-      // Return the actual response from Google Apps Script
+      // Return success - the data should be in the sheet
+      // Note: We can't verify success in no-cors mode, but the request was sent
       return {
-        success: data.success || true,
-        message: data.message || 'Booking submitted successfully!',
-        bookingId: data.bookingId || Date.now(),
-        note: 'Booking submitted to Google Sheets successfully (JSON response handled)',
-        submittedData: fields,
-        originalResponse: data
+        success: true,
+        message: 'Booking submitted to Google Sheets successfully!',
+        bookingId: Date.now(),
+        note: 'Data sent to Google Sheets (no-cors mode - check sheet to verify)',
+        submittedData: fields
       };
-    } else {
-      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    } catch (fetchError) {
+      clearTimeout(timeoutId);
+      
+      // Handle abort/timeout
+      if (fetchError.name === 'AbortError') {
+        throw new Error('Request timeout - Google Sheets submission took too long');
+      }
+      throw fetchError;
     }
 
   } catch (error) {
-    console.error('Error submitting booking via fetch:', error);
+    // Log error but don't throw - return error object instead
+    console.warn('⚠️ Error submitting booking to Google Sheets (non-critical):', error);
     
-    // If it's a CORS error, fall back to no-cors mode and assume success
-    if (error.message.includes('CORS') || error.message.includes('fetch')) {
-      console.log('CORS error detected, falling back to no-cors mode...');
-      
-      try {
-        const formData = new FormData();
-        const fields = {
-          propertyId: bookingData.propertyId || 'Unknown',
-          propertyName: bookingData.propertyName || 'Unknown Property',
-          guestName: bookingData.name || 'Unknown Guest',
-          email: bookingData.email || 'no-email@example.com',
-          phone: bookingData.phone || 'No Phone',
-          checkIn: bookingData.checkIn || '2024-01-01',
-          checkOut: bookingData.checkOut || '2024-01-02',
-          guests: bookingData.guests || 1,
-          totalPrice: bookingData.totalPrice || 0,
-          timestamp: new Date().toISOString(),
-          source: 'YGI Website'
-        };
-        
-        Object.entries(fields).forEach(([key, value]) => {
-          formData.append(key, String(value));
-        });
-
-        await fetch(GOOGLE_APPS_SCRIPT_URL, {
-          method: 'POST',
-          body: formData,
-          mode: 'no-cors' // Fallback to no-cors
-        });
-
-        return {
-          success: true,
-          message: 'Booking submitted successfully! You will receive a confirmation email shortly.',
-          bookingId: Date.now(),
-          note: 'Booking submitted to Google Sheets successfully (no-cors fallback)',
-          submittedData: fields
-        };
-      } catch (fallbackError) {
-        console.error('Fallback submission also failed:', fallbackError);
-        return storeBookingLocally(bookingData);
-      }
-    }
-    
-    // Fallback: Store locally if fetch fails
-    return storeBookingLocally(bookingData);
+    // Return error object instead of throwing
+    return {
+      success: false,
+      message: 'Failed to submit booking to Google Sheets: ' + (error?.message || 'Unknown error'),
+      error: error?.message || 'Unknown error',
+      submittedData: bookingData || {}
+    };
   }
 };
 

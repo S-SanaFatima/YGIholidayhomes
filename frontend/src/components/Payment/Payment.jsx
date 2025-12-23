@@ -113,35 +113,72 @@ const PaymentForm = ({ bookingDetails, onPaymentSuccess, onPaymentError, booking
           }),
         });
 
-        // Save booking details to Google Sheets
-        try {
-          const sheetsData = {
-            propertyId: bookingData?.id || 'Unknown',
-            propertyName: bookingDetails.propertyName,
-            name: bookingDetails.guestName,
-            email: bookingDetails.email,
-            phone: bookingDetails.phone,
-            checkIn: bookingDetails.checkIn,
-            checkOut: bookingDetails.checkOut,
-            guests: bookingDetails.guests,
-            totalPrice: bookingDetails.totalAmount,
-            paymentIntentId: paymentIntent.id,
-            status: 'confirmed'
-          };
+        // Save booking details to Google Sheets (non-blocking - payment already succeeded)
+        // Wrap in setTimeout to ensure it doesn't block the payment success flow
+        setTimeout(async () => {
+          try {
+            const sheetsData = {
+              propertyId: bookingData?.id || 'Unknown',
+              propertyName: bookingDetails.propertyName || 'Unknown',
+              name: bookingDetails.guestName || 'Unknown',
+              email: bookingDetails.email || 'no-email@example.com',
+              phone: bookingDetails.phone || 'No Phone',
+              checkIn: bookingDetails.checkIn || '',
+              checkOut: bookingDetails.checkOut || '',
+              guests: bookingDetails.guests || 1,
+              totalPrice: bookingDetails.totalAmount || 0,
+              paymentIntentId: paymentIntent.id || '',
+              status: 'confirmed'
+            };
 
-          console.log('Submitting booking to Google Sheets:', sheetsData);
-          const sheetsResult = await submitBookingToGoogleSheets(sheetsData);
-          console.log('Google Sheets submission result:', sheetsResult);
+            console.log('📤 Submitting booking to Google Sheets:', sheetsData);
+            
+            // Submit to Google Sheets with error handling
+            let sheetsResult = { success: false, message: 'Not attempted' };
+            try {
+              sheetsResult = await submitBookingToGoogleSheets(sheetsData);
+              console.log('📥 Google Sheets submission result:', sheetsResult);
+            } catch (submitError) {
+              console.warn('⚠️ Google Sheets submission error (non-critical):', submitError);
+              sheetsResult = {
+                success: false,
+                message: 'Submission error: ' + (submitError?.message || 'Unknown error'),
+                error: submitError?.message || 'Unknown error'
+              };
+            }
 
-          if (sheetsResult.success) {
-            console.log('✅ Booking saved to Google Sheets successfully');
-          } else {
-            console.warn('⚠️ Google Sheets submission failed:', sheetsResult.message);
+            // Log to backend for Railway logs visibility (non-blocking)
+            try {
+              const backendUrl = import.meta.env.VITE_API_URL || 'https://ygiholidayhomes-production.up.railway.app';
+              await fetch(`${backendUrl}/log-sheets-submission`, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  success: sheetsResult?.success || false,
+                  message: sheetsResult?.message || 'Unknown status',
+                  bookingData: sheetsData,
+                  error: sheetsResult?.error || null
+                })
+              }).catch(() => {
+                // Silently ignore backend logging errors
+              });
+            } catch (logError) {
+              // Silently ignore - logging is not critical
+            }
+
+            if (sheetsResult?.success) {
+              console.log('✅ Booking saved to Google Sheets successfully');
+            } else {
+              console.warn('⚠️ Google Sheets submission failed (non-critical):', sheetsResult?.message);
+            }
+          } catch (error) {
+            // Catch any unexpected errors and log silently
+            console.warn('⚠️ Unexpected error in Google Sheets submission (non-critical):', error);
+            // Don't throw - payment already succeeded
           }
-        } catch (sheetsError) {
-          console.error('❌ Error saving to Google Sheets:', sheetsError);
-          // Don't fail the payment if Google Sheets fails
-        }
+        }, 100); // Small delay to ensure payment success UI shows first
 
         setPaymentSuccess(true);
         setIsProcessing(false);

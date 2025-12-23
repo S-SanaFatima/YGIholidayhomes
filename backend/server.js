@@ -260,7 +260,19 @@ app.post('/create-booking', async (req, res) => {
     };
 
     // In production, save to database here
-    console.log('Booking created:', booking);
+    console.log('📋 Booking created:', booking);
+    console.log('📊 Booking details for Google Sheets:', {
+      propertyId: req.body.propertyId || 'Unknown',
+      propertyName: propertyName,
+      guestName: guestName,
+      email: email,
+      phone: phone,
+      checkIn: checkIn,
+      checkOut: checkOut,
+      guests: guests,
+      totalPrice: totalAmount,
+      paymentIntentId: paymentIntentId
+    });
 
     res.json({
       success: true,
@@ -273,6 +285,33 @@ app.post('/create-booking', async (req, res) => {
       error: 'Failed to create booking',
       message: error.message
     });
+  }
+});
+
+// Log Google Sheets submission attempts (called from frontend)
+app.post('/log-sheets-submission', async (req, res) => {
+  try {
+    const { success, message, bookingData, error } = req.body;
+    
+    if (success) {
+      console.log('✅ Google Sheets submission successful:', {
+        message: message,
+        bookingData: bookingData,
+        timestamp: new Date().toISOString()
+      });
+    } else {
+      console.error('❌ Google Sheets submission failed:', {
+        message: message,
+        error: error,
+        bookingData: bookingData,
+        timestamp: new Date().toISOString()
+      });
+    }
+
+    res.json({ success: true, logged: true });
+  } catch (error) {
+    console.error('Error logging Google Sheets submission:', error);
+    res.status(500).json({ error: 'Failed to log submission' });
   }
 });
 

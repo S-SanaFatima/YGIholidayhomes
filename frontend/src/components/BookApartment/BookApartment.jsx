@@ -129,8 +129,11 @@ const BookApartment = ({ onNavigate, onViewDetails, onBookNow, searchParams }) =
   const handleBookingSubmit = async (bookingData) => {
     try {
       // Create booking data for payment page
+      // Ensure all property flags are preserved (especially excludeCleaningFee)
       const paymentBookingData = {
         ...selectedProperty,
+        excludeCleaningFee: selectedProperty?.excludeCleaningFee || false, // Explicitly preserve flag
+        excludeDiscount: selectedProperty?.excludeDiscount || false, // Explicitly preserve flag
         bookingData: {
           checkIn: bookingData.checkIn,
           checkOut: bookingData.checkOut,
